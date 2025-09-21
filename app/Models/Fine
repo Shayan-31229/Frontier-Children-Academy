@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Fine  extends BaseModel
+{
+    protected $table = 'fines';
+
+    protected $fillable = [
+        'fee_masters_id',
+        'fine_amount',
+        'fine_date',
+        'remarks',
+    ];
+
+    /**
+     * Get the related fee master record.
+     */
+    public function feeMaster()
+    {
+        return $this->belongsTo(FeeMaster::class, 'fee_masters_id');
+    }
+}
