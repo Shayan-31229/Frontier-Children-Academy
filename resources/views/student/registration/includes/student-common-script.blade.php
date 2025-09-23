@@ -261,12 +261,12 @@
             return false;
         }
 
-        if (!(academic_status > 0)) {
-            toastr.warning("Please, Select Academic Status", "Info:");
-            activeGeneralInfo();
-            $('select[name="academic_status"]').focus();
-            return false;
-        }
+        // if (!(academic_status > 0)) {
+        //     toastr.warning("Please, Select Academic Status", "Info:");
+        //     activeGeneralInfo();
+        //     $('select[name="academic_status"]').focus();
+        //     return false;
+        // }
 
         if (mobile_1 === '') {
             toastr.warning("Please, Enter Mobile Number.", "Info:");

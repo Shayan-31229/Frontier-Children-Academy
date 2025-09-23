@@ -120,7 +120,7 @@
                                     <b class="arrow"></b>
                                 </li>
 
-                                <li class="{!! request()->is('student/scrutiny') ? 'active' : '' !!} hover">
+                                <!-- <li class="{!! request()->is('student/scrutiny') ? 'active' : '' !!} hover">
                                     <a href="{{ route('student.scrutiny') }}">
                                         <i class="menu-icon-new fa fa-caret-right"></i>
                                         {{__('student_staff.common.scrutiny')}}
@@ -134,24 +134,24 @@
                                         {{__('student_staff.common.interview')}}
                                     </a>
                                     <b class="arrow"></b>
-                                </li>
+                                </li> -->
 
-                                <li class="{!! request()->is('student/meritlist') ? 'active' : '' !!} hover">
+                                <!-- <li class="{!! request()->is('student/meritlist') ? 'active' : '' !!} hover">
                                     <a href="{{ route('student.meritlist') }}">
                                         <i class="menu-icon-new fa fa-caret-right"></i>
                                         {{__('student_staff.common.meritlist')}}
                                     </a>
                                     <b class="arrow"></b>
-                                </li>
+                                </li> -->
                         </li>
 
-                        <li class="{!! request()->is('student/confirmadmission') ? 'active' : '' !!} hover">
+                        <!-- <li class="{!! request()->is('student/confirmadmission') ? 'active' : '' !!} hover">
                             <a href="{{ route('student.confirmadmission') }}">
                                 <i class="menu-icon-new fa fa-caret-right"></i>
                                 {{__('student_staff.common.confirmadmission')}}
                             </a>
                             <b class="arrow"></b>
-                        </li>
+                        </li> -->
 
                         <li class="{!! request()->is('student/import') ? 'active' : '' !!} hover">
                             <a href="{{ route('student.import') }}">
@@ -184,14 +184,14 @@
                             </a>
                             <b class="arrow"></b>
                         </li>
-                        <li class="{!! request()->is('report/student*') ? 'active' : '' !!} hover">
+                        <!-- <li class="{!! request()->is('report/student*') ? 'active' : '' !!} hover">
                             <a href="{{ route('report.student') }}">
                                 <i class="menu-icon-new fa fa-caret-right"></i>
                                 {{__('student_staff.common.complete_records')}}
                             </a>
 
                             <b class="arrow"></b>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
 

@@ -17,7 +17,7 @@
     var date_of_birth_start_date = $('input[name="date_of_birth_start_date"]').val();
     var date_of_birth_end_date = $('input[name="date_of_birth_end_date"]').val();
     var university_reg = $('input[name="university_reg"]').val();
-
+    var email = $('#email').val();
     var religion = $('input[name="religion"]').val();
     var caste = $('input[name="caste"]').val();
     var mother_tongue = $('input[name="mother_tongue"]').val();
@@ -55,6 +55,16 @@
             url += '&faculty=' + faculty;
         } else {
             url += '?faculty=' + faculty;
+            flag = true;
+        }
+    }
+
+    if(email!="")
+    {
+        if (flag) {
+            url += '&email=' + email;
+        } else {
+            url += '?email=' + email;
             flag = true;
         }
     }
