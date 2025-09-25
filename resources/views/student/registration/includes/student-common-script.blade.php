@@ -175,12 +175,12 @@
         var state = $('input[name="state"]').val();
         var country = $('input[name="country"]').val();
 
-        if ($("#reg_no").val() === '') {
-            toastr.warning("Please, Enter Admission number.", "Info:");
-            activeGeneralInfo();
-            $("#reg_no").focus();
-            return false; 
-        }
+        // if ($("#reg_no").val() === '') {
+        //     toastr.warning("Please, Enter Admission number.", "Info:");
+        //     activeGeneralInfo();
+        //     $("#reg_no").focus();
+        //     return false; 
+        // }
 
         if (reg_date === '') {
             toastr.warning("Please, Enter Admission Date.", "Info:");

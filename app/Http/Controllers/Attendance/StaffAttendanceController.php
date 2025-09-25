@@ -52,7 +52,7 @@ class StaffAttendanceController extends CollegeBaseController
                 'attendances.day_19', 'attendances.day_20', 'attendances.day_21', 'attendances.day_22', 'attendances.day_23',
                 'attendances.day_24', 'attendances.day_25', 'attendances.day_26', 'attendances.day_27', 'attendances.day_28',
                 'attendances.day_29', 'attendances.day_30', 'attendances.day_31','attendances.day_32', 'staff.id as staff_id', 'staff.reg_no',
-                'staff.first_name', 'staff.middle_name', 'staff.last_name', 'staff.designation')
+                'staff.first_name', 'staff.last_name', 'staff.designation')
                 ->where('attendances.attendees_type', 2)
                 ->where(function ($query) use ($request) {
                     $this->commonStaffFilterCondition($query, $request);
@@ -84,7 +84,7 @@ class StaffAttendanceController extends CollegeBaseController
                 'attendances.day_19', 'attendances.day_20', 'attendances.day_21', 'attendances.day_22', 'attendances.day_23',
                 'attendances.day_24', 'attendances.day_25', 'attendances.day_26', 'attendances.day_27', 'attendances.day_28',
                 'attendances.day_29', 'attendances.day_30', 'attendances.day_31','attendances.day_32', 'staff.id as students_id', 'staff.reg_no',
-                'staff.first_name', 'staff.middle_name', 'staff.last_name', 'staff.designation')
+                'staff.first_name', 'staff.last_name', 'staff.designation')
                 ->where('attendances.attendees_type', 2)
                 ->join('staff', 'staff.id', '=', 'attendances.link_id')
                 ->orderBy('attendances.years_id','asc')
@@ -155,7 +155,7 @@ class StaffAttendanceController extends CollegeBaseController
                 if($designation >0){
                     $attendanceExist = Attendance::select('attendances.id','attendances.attendees_type','attendances.link_id',
                         'attendances.years_id','attendances.months_id','attendances.'.$day,
-                        'staff.id as students_id','staff.reg_no','staff.first_name','staff.middle_name','staff.last_name')
+                        'staff.id as students_id','staff.reg_no','staff.first_name','staff.last_name')
                         ->where('attendances.attendees_type',2)
                         ->where('attendances.years_id',$year)
                         ->where('attendances.months_id',$month)
@@ -165,7 +165,7 @@ class StaffAttendanceController extends CollegeBaseController
                 }else{
                     $attendanceExist = Attendance::select('attendances.id','attendances.attendees_type','attendances.link_id',
                         'attendances.years_id','attendances.months_id','attendances.'.$day,
-                        'staff.id as students_id','staff.reg_no','staff.first_name','staff.middle_name','staff.last_name')
+                        'staff.id as students_id','staff.reg_no','staff.first_name','staff.last_name')
                         ->where('attendances.attendees_type',2)
                         ->where('attendances.years_id',$year)
                         ->where('attendances.months_id',$month)
@@ -300,7 +300,7 @@ class StaffAttendanceController extends CollegeBaseController
             /*For Staff List*/
             $attendanceExist = Attendance::select('attendances.attendees_type', 'attendances.link_id',
                 'attendances.years_id', 'attendances.months_id', 'attendances.' . $day,
-                'staff.id as staff_id', 'staff.reg_no', 'staff.first_name', 'staff.middle_name', 'staff.last_name', 'staff.staff_image',
+                'staff.id as staff_id', 'staff.reg_no', 'staff.first_name', 'staff.last_name', 'staff.staff_image',
                 'd.id as designation_id','d.title as designation_title')
                 ->where('attendances.attendees_type', 2)
                 ->where('attendances.years_id', $year)
@@ -316,7 +316,7 @@ class StaffAttendanceController extends CollegeBaseController
             $existStaffId = array_pluck($attendanceExist, 'staff_id');
 
             //Get Active Staff For Related Designation
-            $activeStaff = Staff::select('staff.id', 'staff.reg_no', 'staff.first_name', 'staff.middle_name', 'staff.last_name', 'staff.staff_image','d.id as designation_id','d.title as designation_title','d.status as designation_status')
+            $activeStaff = Staff::select('staff.id', 'staff.reg_no', 'staff.first_name', 'staff.last_name', 'staff.staff_image','d.id as designation_id','d.title as designation_title','d.status as designation_status')
                 ->whereNotIn('staff.id', $existStaffId)
                 ->where('staff.status', 1)
                 ->where('staff.designation', $designation)
@@ -329,7 +329,7 @@ class StaffAttendanceController extends CollegeBaseController
             /*For Staff List*/
             $attendanceExist = Attendance::select('attendances.attendees_type', 'attendances.link_id',
                 'attendances.years_id', 'attendances.months_id', 'attendances.' . $day,
-                'staff.id as staff_id', 'staff.reg_no', 'staff.first_name', 'staff.middle_name', 'staff.last_name', 'staff.staff_image',
+                'staff.id as staff_id', 'staff.reg_no', 'staff.first_name', 'staff.last_name', 'staff.staff_image',
                 'd.id as designation_id','d.title as designation_title')
                 ->where('attendances.attendees_type', 2)
                 ->where('attendances.years_id', $year)
@@ -344,7 +344,7 @@ class StaffAttendanceController extends CollegeBaseController
             $existStaffId = array_pluck($attendanceExist, 'staff_id');
 
             //Get Active Staff For Related Designation
-            $activeStaff = Staff::select('staff.id', 'staff.reg_no', 'staff.first_name', 'staff.middle_name', 'staff.last_name', 'staff.staff_image','d.id as designation_id','d.title as designation_title','d.status as designation_status')
+            $activeStaff = Staff::select('staff.id', 'staff.reg_no', 'staff.first_name', 'staff.last_name', 'staff.staff_image','d.id as designation_id','d.title as designation_title','d.status as designation_status')
                 ->whereNotIn('staff.id', $existStaffId)
                 ->where('staff.status', 1)
                 ->join('staff_designations as d', 'd.id', '=', 'staff.designation')

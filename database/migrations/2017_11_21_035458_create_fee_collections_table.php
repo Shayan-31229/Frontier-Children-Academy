@@ -31,7 +31,9 @@ class CreateFeeCollectionsTable extends Migration
                 $table->string('note', '100')->nullable();
                 $table->text('response')->nullable();
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
 
+                $table->foreign("branch_id")->references("id")->on("branches");
                 $table->foreign('students_id')->references('id')->on('students');
                 $table->foreign('fee_masters_id')->references('id')->on('fee_masters');
             });

@@ -27,8 +27,11 @@ class CreateSmsEmailsTable extends Migration
                 $table->boolean('email')->default(0);
                 $table->text('group')->nullable;
                 $table->text('ref')->nullable;
-
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
             });
 
         }

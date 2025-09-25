@@ -28,6 +28,11 @@ class CreateFoodItemsTable extends Migration
                 $table->string('description', '100')->nullable();
 
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
+
             });
 
         }

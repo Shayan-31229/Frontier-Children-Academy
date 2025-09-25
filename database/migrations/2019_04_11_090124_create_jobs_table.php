@@ -22,6 +22,10 @@ class CreateJobsTable extends Migration
                 $table->unsignedInteger('reserved_at')->nullable();
                 $table->unsignedInteger('available_at');
                 $table->unsignedInteger('created_at');
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
             });
 
         }

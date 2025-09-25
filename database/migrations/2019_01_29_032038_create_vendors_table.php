@@ -34,6 +34,10 @@ class CreateVendorsTable extends Migration
                 $table->text('vendor_image')->nullable();
 
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
             });
 
         }

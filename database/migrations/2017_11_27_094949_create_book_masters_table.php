@@ -43,7 +43,9 @@ class CreateBookMastersTable extends Migration
                 $table->string('notes', '100')->nullable();
 
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
 
+                $table->foreign("branch_id")->references("id")->on("branches");
                 $table->foreign('categories')->references('id')->on('book_categories');
             });
 

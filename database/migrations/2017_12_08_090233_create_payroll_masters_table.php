@@ -27,7 +27,9 @@ class CreatePayrollMastersTable extends Migration
                 $table->dateTime('due_date');
                 $table->integer('amount');
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
 
+                $table->foreign("branch_id")->references("id")->on("branches");
                 $table->foreign('staff_id')->references('id')->on('staff');
             });
 

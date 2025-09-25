@@ -28,7 +28,9 @@ class CreateTransactionsTable extends Migration
                 $table->text('description', '100')->nullable();;
 
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
 
+                $table->foreign("branch_id")->references("id")->on("branches");
                 $table->foreign('tr_head_id')->references('id')->on('transaction_heads');
             });
 

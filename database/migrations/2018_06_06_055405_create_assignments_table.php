@@ -31,6 +31,9 @@ class CreateAssignmentsTable extends Migration
                 $table->text('description');
                 $table->text('file')->nullable();
                 $table->boolean('status')->default(0);
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
 
                 $table->foreign('years_id')->references('id')->on('years');
                 $table->foreign('semesters_id')->references('id')->on('semesters');

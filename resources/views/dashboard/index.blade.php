@@ -4,9 +4,11 @@
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}" />
     @endsection
 @section('content')
+
     <div class="main-content">
         <div class="main-content-inner">
             <div class="page-content">
+                
                 @include('layouts.includes.template_setting')
                 <div class="page-header">
                     @include('includes.flash_messages')
@@ -14,6 +16,7 @@
                     @include('dashboard.includes.buttons')
                 </div><!-- /.page-header -->
                 <div class="row">
+                    
                     <div class="col-xs-12">
                     <!-- PAGE CONTENT BEGINS -->
                         {{--Chart Begans--}}

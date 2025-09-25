@@ -67,8 +67,8 @@ class SemesterController extends CollegeBaseController
 
         $data['staffs'] = [];
         $data['staffs'][] = '';
-        foreach (Staff::select('id','first_name','middle_name','last_name')->Active()->get() as $staff) {
-            $data['staffs'][$staff->id] = $staff->first_name.' '.$staff->middle_name.' '.$staff->last_name ;
+        foreach (Staff::select('id','first_name','last_name')->Active()->get() as $staff) {
+            $data['staffs'][$staff->id] = $staff->first_name.' '.$staff->last_name ;
         }
 
 
@@ -147,8 +147,8 @@ class SemesterController extends CollegeBaseController
 
         $data['staffs'] = [];
         $data['staffs'][] = '';
-        foreach (Staff::select('id','first_name','middle_name','last_name')->Active()->get() as $staff) {
-            $data['staffs'][$staff->id] = $staff->first_name.' '.$staff->middle_name.' '.$staff->last_name ;
+        foreach (Staff::select('id','first_name', 'last_name')->Active()->get() as $staff) {
+            $data['staffs'][$staff->id] = $staff->first_name.' '.$staff->last_name ;
         }
 
         $data['html'] = view($this->view_path.'.includes.subject_tr_rows', [

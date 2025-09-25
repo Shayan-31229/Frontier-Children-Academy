@@ -19,7 +19,6 @@ class AddInterviewMarks extends Migration
         $table->integer('fine_exempted')->default(0)->after('father_cnic'); 
         $table->unsignedBigInteger('domicile_id')->nullable()->after('fine_exempted');
         $table->date('arrival_date')->nullable()->after('domicile_id');
-        $table->string('interview_remarks')->nullable()->after('arrival_date'); 
 
         $table->foreign('domicile_id')->references('id')->on('domiciles')->onDelete('set null');
     });
@@ -34,11 +33,7 @@ public function down()
     {
         Schema::table('students', function (Blueprint $table) {
             $table->dropColumn([
-                'interview_marks',
                 'call_date',
-                'form_no',
-                'kmu_reg_no',
-                'pnc_reg_no',
                 'father_cnic',
                 'fine_exempted',
                 'domicile_id',

@@ -38,7 +38,7 @@ class PayrollMasterController extends CollegeBaseController
         $data = [];
         $data['payroll_master'] = PayrollMaster::select('payroll_masters.id', 'payroll_masters.staff_id', 'payroll_masters.tag_line',
             'payroll_masters.payroll_head','payroll_masters.due_date','payroll_masters.amount','payroll_masters.status',
-            'staff.id as staff_id','staff.reg_no', 'staff.first_name',  'staff.middle_name', 'staff.last_name',
+            'staff.id as staff_id','staff.reg_no', 'staff.first_name',  'staff.last_name',
             'staff.mobile_1','staff.designation')
             ->where(function ($query) use ($request) {
 
@@ -90,7 +90,7 @@ class PayrollMasterController extends CollegeBaseController
     {
         $data = [];
         if($request->all()) {
-            $data['staff'] = Staff::select('id', 'reg_no', 'join_date', 'first_name', 'middle_name', 'last_name',
+            $data['staff'] = Staff::select('id', 'reg_no', 'join_date', 'first_name', 'last_name',
                 'father_name', 'designation', 'mobile_1', 'staff_image','basic_salary', 'status')
                 ->where(function ($query) use ($request) {
                     $this->commonStaffFilterCondition($query, $request);

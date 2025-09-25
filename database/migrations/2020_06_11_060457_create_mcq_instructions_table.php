@@ -24,6 +24,10 @@ class CreateMcqInstructionsTable extends Migration
                 $table->string('title')->unique();
                 $table->text('description')->nullable();
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
             });
 
         }

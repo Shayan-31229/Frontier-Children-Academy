@@ -214,15 +214,19 @@ class StudentController extends CollegeBaseController
         $sn = substr("00000{$sn}", -4);
         $year = intval(substr(Year::where('active_status', '=', 1)->first()->title, -2));
         $faculty = Faculty::find(intval($request->faculty));
+        $semestercode = Semester::find(intval($request->semester));
         $facultyCode = $faculty->faculty_code;
         //$regNum = $faculty.'-'.$year.'-'.$sn;
-        $regNum = $facultyCode . $year . $sn;
+        $regNum = $facultyCode . $semestercode->semester . $year . $sn;
         //reg generator End
         $request->request->add(['reg_no' => $regNum]);
         // } else {
         //     $request->request->add(['reg_no' => $request->reg_no]);
         // }
-
+        $request->request->add(["academic_status" => $request->academic_statuses]);
+        $request->request->add(["branch_id" => auth()->user()->branch_id->get()]);
+        
+        //dd($request);
         if ($request->hasFile('student_main_image')) {
             $student_image = $request->file('student_main_image');
             $student_image_name = $request->reg_no . '.' . $student_image->getClientOriginalExtension();
@@ -434,7 +438,7 @@ class StudentController extends CollegeBaseController
             $emailIds = $student->email;
             //check user is exist or not
             $existUser = User::where('email', $emailIds)->first();
-            $name = isset($student->middle_name) ? $student->first_name . ' ' . $student->middle_name . ' ' . $student->last_name : $student->first_name . ' ' . $student->last_name;
+            $name = $student->first_name . ' ' . $student->last_name;
 
             if ($existUser) {
                 $user = $existUser->update([
@@ -2073,7 +2077,6 @@ class StudentController extends CollegeBaseController
                 'reg_no',
                 'reg_date',
                 'first_name',
-                'middle_name',
                 'last_name',
                 'faculty',
                 'semester',
@@ -2483,7 +2486,6 @@ class StudentController extends CollegeBaseController
                     "academic_status" => 1,
                     "batch" => $row['batch'],
                     "first_name" => $row['first_name'],
-                    "middle_name" => $row['middle_name'],
                     "last_name" => $row['last_name'],
                     "date_of_birth" => $date_of_birth,
                     "gender" => $row['gender'],

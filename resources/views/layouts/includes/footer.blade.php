@@ -14,7 +14,7 @@
                     <a href="fca.edu.pk" target="_blank">Cyber Ars.</a>
                     <span class="p2ull-right">Version: 1.0.0</span>
                 @endif
-                    @if(env('APP_STATUS')=='true')
+                    <!-- @if(env('APP_STATUS')=='true')
                             <span><i class="ace-icon fa fa-certificate bigger-110 red"></i> License Expired</span>
                     @else
                             <span><i class="ace-icon fa fa-certificate bigger-110 green"></i></span>
@@ -24,7 +24,7 @@
                             <span><i class="ace-icon fa fa-phone bigger-110 red"></i> Support Expired</span>
                     @else
                             <span> <i class="ace-icon fa fa-comment bigger-110 green"></i></span>
-                    @endif
+                    @endif -->
             </span>
         </div>
     </div>

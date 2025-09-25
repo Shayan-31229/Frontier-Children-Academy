@@ -34,6 +34,10 @@ class CreateOnlinePaymentsTable extends Migration
                 $table->text('note')->nullable();
                 $table->string('verify_method')->nullable();
                 $table->boolean('status')->default(0);
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
 
             });
 

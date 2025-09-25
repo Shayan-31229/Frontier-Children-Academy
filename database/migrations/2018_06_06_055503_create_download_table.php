@@ -27,6 +27,10 @@ class CreateDownloadTable extends Migration
                 $table->string('title', '100');
                 $table->text('description')->nullable();
                 $table->text('file')->nullable();
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
 
                 $table->boolean('status')->default(1);
 

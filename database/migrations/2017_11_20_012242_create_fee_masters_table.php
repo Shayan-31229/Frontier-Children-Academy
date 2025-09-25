@@ -27,7 +27,9 @@ class CreateFeeMastersTable extends Migration
                 $table->dateTime('fee_due_date');
                 $table->integer('fee_amount');
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
 
+                $table->foreign("branch_id")->references("id")->on("branches");
                 $table->foreign('students_id')->references('id')->on('students');
             });
 

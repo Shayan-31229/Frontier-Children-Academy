@@ -27,7 +27,9 @@ class CreateAttendanceMastersTable extends Migration
                 $table->integer('holiday');
                 $table->integer('open');
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
 
+                $table->foreign("branch_id")->references("id")->on("branches");
                 $table->foreign('year')->references('id')->on('years');
                 $table->foreign('month')->references('id')->on('months');
             });

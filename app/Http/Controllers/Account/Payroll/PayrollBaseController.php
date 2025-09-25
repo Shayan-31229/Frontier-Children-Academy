@@ -36,7 +36,7 @@ class PayrollBaseController extends CollegeBaseController
         $data['salaryPay'] = SalaryPay::select('salary_pays.staff_id', 'salary_pays.salary_masters_id', 'salary_pays.date',
             'salary_pays.allowance', 'salary_pays.fine', 'salary_pays.paid_amount','salary_pays.payment_mode',
             'salary_pays.created_by','pm.status as pm_status','pm.payroll_head',
-            'staff.reg_no','staff.join_date', 'staff.first_name','staff.middle_name', 'staff.last_name','staff.designation')
+            'staff.reg_no','staff.join_date', 'staff.first_name','staff.last_name','staff.designation')
             ->where(function ($query) use ($request) {
 
                 $this->commonStaffFilterCondition($query, $request);
@@ -86,7 +86,7 @@ class PayrollBaseController extends CollegeBaseController
     {
 
         $data = [];
-        $staffs = Staff::select('id', 'reg_no', 'join_date', 'first_name',  'middle_name', 'last_name',
+        $staffs = Staff::select('id', 'reg_no', 'join_date', 'first_name',  'last_name',
             'father_name', 'mobile_1','staff_image','designation','status')
             ->where(function ($query) use ($request) {
 

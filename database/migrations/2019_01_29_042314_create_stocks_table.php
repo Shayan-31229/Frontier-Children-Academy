@@ -28,6 +28,10 @@ class CreateStocksTable extends Migration
                 $table->integer('qty_out')->nullable()->default(0);
 
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
             });
         }
 

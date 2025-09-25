@@ -68,7 +68,7 @@ class KhaltiPaymentController extends CollegeBaseController
         $purchase_order_name    =       isset($request->fee_head)?decrypt($request->get('fee_head')):'Fee Payment';
         //get from student detail
         $purchase_order_id      =       $student->reg_no;
-        $name                   =       $student->first_name.' '.$student->middle_name.' '.$student->last_name;
+        $name                   =       $student->first_name.' '.$student->last_name;
         $email                  =       $student->email;
         $phone                  =       $student->mobile_1;
 

@@ -193,7 +193,7 @@ class StudentAttendanceController extends CollegeBaseController
 
                 $attendanceExist = Attendance::select('attendances.id','attendances.attendees_type','attendances.link_id',
                     'attendances.years_id','attendances.months_id','attendances.'.$day,
-                    's.id as students_id','s.reg_no','s.first_name','s.middle_name','s.last_name','s.student_image')
+                    's.id as students_id','s.reg_no','s.first_name','s.last_name','s.student_image')
                     ->where('attendances.attendees_type',1)
                     ->where('attendances.years_id',$year)
                     ->where('attendances.months_id',$month)
@@ -331,7 +331,7 @@ class StudentAttendanceController extends CollegeBaseController
 
             $attendanceExist = Attendance::select('attendances.attendees_type','attendances.link_id',
                 'attendances.years_id','attendances.months_id','attendances.'.$day,
-                's.id as students_id','s.reg_no','s.first_name','s.middle_name','s.last_name','s.student_image')
+                's.id as students_id','s.reg_no','s.first_name','s.last_name','s.student_image')
                 ->where('attendances.attendees_type',1)
                 ->where('attendances.years_id',$year)
                 ->where('attendances.months_id',$month)
@@ -346,7 +346,7 @@ class StudentAttendanceController extends CollegeBaseController
             $existStudentId  = array_pluck($attendanceExist, 'students_id');
 
             //Get Active Student For Related Faculty and Semester
-            $activeStudent = Student::select('id','reg_no','first_name','middle_name','last_name','student_image')
+            $activeStudent = Student::select('id','reg_no','first_name','last_name','student_image')
                 ->where($studentCondition)
                 ->whereIn('semester',$availableSemesterId)
                 ->whereNotIn('id',$existStudentId)
@@ -390,7 +390,7 @@ class StudentAttendanceController extends CollegeBaseController
             $studentCondition = $batch!=''?[['s.faculty', '=' , $faculty], ['s.semester', '=' , $semester], ['s.batch', '=' , $batch] ]:[['s.faculty', '=' , $faculty], ['s.semester', '=' , $semester] ];
             $attendanceExist = Attendance::select('attendances.attendees_type','attendances.link_id',
                 'attendances.years_id','attendances.months_id','attendances.'.$day,
-                's.id as students_id','s.reg_no','s.first_name','s.middle_name','s.last_name','s.student_image')
+                's.id as students_id','s.reg_no','s.first_name','s.last_name','s.student_image')
                 ->where('attendances.attendees_type',1)
                 ->where('attendances.years_id',$year)
                 ->where('attendances.months_id',$month)
@@ -405,7 +405,7 @@ class StudentAttendanceController extends CollegeBaseController
 
             //Get Active Student For Related Faculty and Semester
             $studentCondition = $batch!=''?[['faculty', '=' , $faculty], ['semester', '=' , $semester], ['batch', '=' , $batch] ]:[['faculty', '=' , $faculty], ['semester', '=' , $semester] ];
-            $activeStudent = Student::select('id','reg_no','first_name','middle_name','last_name','student_image')
+            $activeStudent = Student::select('id','reg_no','first_name','last_name','student_image')
                 ->where($studentCondition)
                 ->whereNotIn('id',$existStudentId)
                 ->Active()

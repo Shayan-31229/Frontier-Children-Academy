@@ -217,7 +217,7 @@ class SubjectAttendanceController extends CollegeBaseController
             foreach (array_unique($request->get('students_id')) as $student) {
                 $attendanceExist = SubjectAttendance::select('subject_attendances.id','subject_attendances.link_id','subject_attendances.subjects_id','subject_attendances.attendance_type',
                     'subject_attendances.years_id','subject_attendances.months_id','subject_attendances.'.$day,
-                    's.id as students_id','s.reg_no','s.first_name','s.middle_name','s.last_name','s.student_image')
+                    's.id as students_id','s.reg_no','s.first_name','s.last_name','s.student_image')
                     ->where('subject_attendances.subjects_id',$subject)
                     ->where('subject_attendances.attendance_type',$attendance_type)
                     ->where('subject_attendances.years_id',$year)
@@ -410,7 +410,7 @@ class SubjectAttendanceController extends CollegeBaseController
 
                     $attendanceExist = SubjectAttendance::select('subject_attendances.attendance_type','subject_attendances.link_id',
                         'subject_attendances.years_id','subject_attendances.months_id','subject_attendances.'.$day,
-                        's.id as students_id','s.reg_no','s.first_name','s.middle_name','s.last_name','s.student_image')
+                        's.id as students_id','s.reg_no','s.first_name','s.last_name','s.student_image')
                         ->where('subject_attendances.attendance_type',$attendance_type)
                         ->where('subject_attendances.years_id',$year)
                         ->where('subject_attendances.months_id',$month)
@@ -427,7 +427,7 @@ class SubjectAttendanceController extends CollegeBaseController
                     $studentCondition = $batch!=''?[['faculty', '=' , $faculty], ['semester', '=' , $semester], ['batch', '=' , $batch] ]:[['faculty', '=' , $faculty], ['semester', '=' , $semester] ];
 
                     //Get Active Student For Related Faculty and Semester
-                    $activeStudent = Student::select('id','reg_no','first_name','middle_name','last_name','student_image')
+                    $activeStudent = Student::select('id','reg_no','first_name','last_name','student_image')
                         ->where($studentCondition)
                         ->whereNotIn('id',$existStudentId)
                         ->Active()
@@ -478,7 +478,7 @@ class SubjectAttendanceController extends CollegeBaseController
 
             $attendanceExist = SubjectAttendance::select('subject_attendances.attendance_type','subject_attendances.link_id',
                 'subject_attendances.years_id','subject_attendances.months_id','subject_attendances.'.$day,
-                's.id as students_id','s.reg_no','s.first_name','s.middle_name','s.last_name','s.student_image')
+                's.id as students_id','s.reg_no','s.first_name','s.last_name','s.student_image')
                 ->where('subject_attendances.attendance_type',$attendance_type)
                 ->where('subject_attendances.subjects_id',$subject)
                 ->where('subject_attendances.years_id',$year)
@@ -495,7 +495,7 @@ class SubjectAttendanceController extends CollegeBaseController
             //Get Active Student For Related Faculty and Semester
             $studentCondition = $batch!=''?[['faculty', '=' , $faculty], ['semester', '=' , $semester], ['batch', '=' , $batch] ]:[['faculty', '=' , $faculty], ['semester', '=' , $semester] ];
 
-            $activeStudent = Student::select('id','reg_no','first_name','middle_name','last_name','student_image')
+            $activeStudent = Student::select('id','reg_no','first_name','last_name','student_image')
                 ->where($studentCondition)
                 ->whereNotIn('id',$existStudentId)
                 ->Active()

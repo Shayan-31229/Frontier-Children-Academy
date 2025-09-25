@@ -91,11 +91,11 @@ class HomeController extends CollegeBaseController
 
         $start = date('z') + 1;
         $end = date('z') + 1 + 10;
-        $data['student_birthday'] = Student::select('id', 'reg_no', 'first_name', 'middle_name', 'last_name', 'faculty', 'semester', 'date_of_birth')
+        $data['student_birthday'] = Student::select('id', 'reg_no', 'first_name', 'last_name', 'faculty', 'semester', 'date_of_birth')
             ->whereRaw("DAYOFYEAR(date_of_birth) BETWEEN $start AND $end")
             ->orderBy('date_of_birth', 'asc')
             ->paginate(env('PAGINATION_LIMIT', $this->pagination_limit));
-        $data['staff_birthday'] = Staff::select('id', 'reg_no', 'first_name', 'middle_name', 'last_name', 'designation', 'date_of_birth')
+        $data['staff_birthday'] = Staff::select('id', 'reg_no', 'first_name', 'last_name', 'designation', 'date_of_birth')
             ->whereRaw("DAYOFYEAR(date_of_birth) BETWEEN $start AND $end")
             ->orderBy('date_of_birth', 'asc')
             ->paginate(env('PAGINATION_LIMIT', $this->pagination_limit));
@@ -228,6 +228,7 @@ class HomeController extends CollegeBaseController
             ->get();
 
         $data['academic_status_count'] = Student::select('academic_status', DB::raw('count(*) as total'))
+            ->where("branch_id", 1)
             ->groupBy('academic_status')
             ->get();
 

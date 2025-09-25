@@ -38,9 +38,12 @@ class CreateAuditsTable extends Migration
                 $table->ipAddress('ip_address')->nullable();
                 $table->text('user_agent')->nullable();
                 $table->text('tags')->nullable();
-                $table->timestamps();
-
                 $table->index(['user_id', 'user_type']);
+                $table->integer("branch_id")->default(1);
+                
+                $table->foreign("branch_id")->references("id")->on("branches");
+                
+                $table->timestamps();
             });
 
         }

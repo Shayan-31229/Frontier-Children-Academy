@@ -34,7 +34,7 @@ class SalaryPayController extends CollegeBaseController
     public function index(Request $request)
     {
         $data = [];
-        $data['staff'] = Staff::select('id', 'reg_no', 'first_name',  'middle_name', 'last_name',
+        $data['staff'] = Staff::select('id', 'reg_no', 'first_name',  'last_name',
             'father_name', 'mobile_1','designation','qualification','status')
             ->where(function ($query) use ($request) {
                 $this->commonStaffFilterCondition($query, $request);
@@ -52,7 +52,7 @@ class SalaryPayController extends CollegeBaseController
     {
         $data = [];
         $id = decrypt($id);
-        $data['staff'] = Staff::select('id','reg_no', 'join_date', 'first_name',  'middle_name', 'last_name',
+        $data['staff'] = Staff::select('id','reg_no', 'join_date', 'first_name',  'last_name',
             'date_of_birth', 'home_phone','email', 'mobile_1', 'designation','qualification','staff_image', 'status')
             ->where('id','=',$id)
             ->first();

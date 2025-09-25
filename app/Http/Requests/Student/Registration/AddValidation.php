@@ -24,7 +24,7 @@ class AddValidation extends FormRequest
     public function rules()
     {
         return [
-            'reg_no'                        => 'required  | max:25 | unique:students,reg_no',
+            'reg_no'                        => 'max:25 | unique:students,reg_no',
             'reg_date'                      => 'required',
             'faculty'                       => 'required | exists:faculties,id',
             'semester'                      => 'required | exists:semesters,id',
@@ -34,13 +34,11 @@ class AddValidation extends FormRequest
             'last_name'                     => 'max:25',
             'date_of_birth'                 => 'required',
             'gender'                        => 'required',
-            'religion'                      =>'max:25',
-            'caste'                         =>'max:25',
+            'religion'                      => 'max:25',
             'nationality'                   => 'required | max:25',
             'cnic_no'                       => 'max:15',
             'address'                       => 'max:100',
             'state'                         => 'max:25',
-            //'country'                       => 'required | max:25',
             'temp_address'                  => 'max:100',
             'temp_state'                    => 'max:25',
             'temp_country'                  => 'max:25',
@@ -75,12 +73,12 @@ class AddValidation extends FormRequest
             'mother_mobile_2'               => 'max:25',
             'mother_email'                  => 'max:100',
 
-            'institution.*'                   => 'max:100',
-            'board.*'                         => 'max:50',
-            'pass_year.*'                     => 'max:4',
-            'symbol_no.*'                     => 'max:25',
-            'division_grade.*'                => 'max:10',
-            'major_subjects.*'                => 'max:50',
+            'institution.*'                 => 'max:100',
+            'board.*'                       => 'max:50',
+            'pass_year.*'                   => 'max:4',
+            'symbol_no.*'                   => 'max:25',
+            'division_grade.*'              => 'max:10',
+            'major_subjects.*'              => 'max:50',
 
             'student_main_image'            => 'mimes:jpeg,jpg,bmp,png',
             'student_signature_main_image'  => 'mimes:jpeg,jpg,bmp,png',

@@ -11,7 +11,7 @@
 @if(Config::get('edufirmconfig.student.registration.tabs.general_info.general_info') == 1)
 
     <div class="widget-box">
-        <div class="widget-header widget-header-small header-color-green">
+        <div class="widget-header widget-header-small widget-transparent">
             <h4 class="widget-title lighter">
                 <i class="ace-icon fa fa-info-circle blue"></i>
                 {{ __('form_fields.student.section_label.general_info')}}
@@ -20,15 +20,32 @@
         <div class="widget-body">
             <div class="widget-main">
 
-                {{-- Registration Info --}}
+                {{-- Old School Info --}}
                 <div class="form-group">
-                    {!! Form::label('reg_no', '<i class="fa fa-hashtag"></i> ' . __('form_fields.student.fields.reg_no'), ['class' => 'col-sm-2 control-label no-padding-right'], false) !!}
+                    {!! Form::label('old_school_name', '<i class="fa fa-building"></i> ' . __('form_fields.student.fields.old_school_name'), ['class' => 'col-sm-2 control-label no-padding-right'], false) !!}
                     <div class="col-sm-2">
-                        {!! Form::text('reg_no', null, ["class" => "form-control border-form input-mask-registration"]) !!}
-                        <span
-                            class="help-block text-danger">@include('includes.form_fields_validation_message', ['name' => 'reg_no'])</span>
+                        {!! Form::text('old_school_name', null, ["class" => "form-control border-form upper", "placeholder" => "Old School Name", "autofocus"]) !!}
                     </div>
 
+                    {!! Form::label('old_school_slc_no', '<i class="fa fa-certificate"></i> ' . __('form_fields.student.fields.old_school_slc_no'), ['class' => 'col-sm-2 control-label no-padding-right'], false) !!}
+                    <div class="col-sm-2">
+                        {!! Form::text('old_school_slc_no', null, ["class" => "form-control border-form upper", "placeholder" => "Old School SLC No."]) !!}
+                    </div>
+
+                    {!! Form::label('old_school_slc_date', '<i class="fa fa-calendar"></i> ' . __('form_fields.student.fields.old_school_slc_date'), ['class' => 'col-sm-2 control-label no-padding-right'], false) !!}
+                    <div class="col-sm-2">
+                        <span class="input-icon">
+                            {!! Form::text('old_school_slc_date', null, ["class" => "form-control date-picker border-form input-mask-date", 'autocomplete' => 'off']) !!}
+                            <i class="ace-icon fa fa-calendar green"></i>
+                        </span>
+                        <span
+                            class="help-block text-danger">@include('includes.form_fields_validation_message', ['name' => 'old_school_slc_date'])
+                        </span>
+                    </div>
+                </div>
+                
+                {{-- Registration Info --}}
+                <div class="form-group">
                     {!! Form::label('reg_date', '<i class="fa fa-calendar"></i> ' . __('form_fields.student.fields.reg_date'), ['class' => 'col-sm-2 control-label no-padding-right'], false) !!}
                     <div class="col-sm-2">
                         <span class="input-icon">
@@ -36,16 +53,16 @@
                             <i class="ace-icon fa fa-calendar green"></i>
                         </span>
                         <span
-                            class="help-block text-danger">@include('includes.form_fields_validation_message', ['name' => 'reg_date'])</span>
+                            class="help-block text-danger">@include('includes.form_fields_validation_message', ['name' => 'reg_date'])
+                        </span>
                     </div>
-
-                    <!-- {!! Form::label('university_reg', '<i class="fa fa-university"></i> ' . __('form_fields.student.fields.university_reg'), ['class' => 'col-sm-2 control-label no-padding-right'], false) !!}
+                    {!! Form::label('batch', 'Session', ['class' => 'col-sm-2 control-label']) !!}
                     <div class="col-sm-2">
-                        {!! Form::text('university_reg', null, ["class" => "form-control border-form"]) !!}
-                        <span
-                            class="help-block text-danger">@include('includes.form_fields_validation_message', ['name' => 'university_reg'])</span>
-                    </div> -->
+                        {!! Form::select('batch', $data['batch'], null, ['class' => 'form-control border-form', "required", 'readonly']) !!}
+                        @include('includes.form_fields_validation_message', ['name' => 'batch'])
+                    </div>
                 </div>
+
 
                 {{-- Faculty & Semester --}}
                 @if (!isset($data['row']))
@@ -62,11 +79,7 @@
                             <span
                                 class="help-block text-danger">@include('includes.form_fields_validation_message', ['name' => 'semester'])</span>
                         </div>
-                        {!! Form::label('batch', 'Session', ['class' => 'col-sm-2 control-label']) !!}
-                        <div class="col-sm-2">
-                            {!! Form::select('batch', $data['batch'], null, [ 'class'=>'form-control border-form',"required",'readonly']) !!}
-                            @include('includes.form_fields_validation_message', ['name' => 'batch'])
-                        </div>
+
 
                     </div>
                 @else
@@ -96,7 +109,7 @@
                     {!! Form::label('date_of_birth', '<i class="fa fa-birthday-cake"></i> ' . __('form_fields.student.fields.date_of_birth'), ['class' => 'col-sm-1 control-label no-padding-right'], false) !!}
                     <div class="col-sm-2">
                         <span class="input-icon">
-                            {!! Form::text('date_of_birth', null, ["class" => "form-control border-form input-mask-date","required", "autocomplete" => "off", "max" => \Carbon\Carbon::now()->subYears(17)->format('Y-m-d')]) !!}
+                            {!! Form::text('date_of_birth', null, ["class" => "form-control border-form input-mask-date", "required", "autocomplete" => "off", "max" => \Carbon\Carbon::now()->subYears(17)->format('Y-m-d')]) !!}
                             <i class="ace-icon fa fa-calendar pink"></i>
                         </span>
                     </div>
@@ -105,13 +118,13 @@
                     {!! Form::label('cnic_no', '<i class="fa fa-credit-card"></i> ' . __('form_fields.student.fields.cnic_no'), ['class' => 'col-sm-1 control-label'], false) !!}
                     <div class="col-sm-2">
                         {!! Form::text('cnic_no', null, [
-                            "placeholder" => "CNIC (13 digits)",
-                            "class" => "form-control border-form upper",
-                            "required",
-                            "maxlength" => "13",
-                            "id" => "cnic_no",
-                            "inputmode" => "tel"   // better than "numeric" for mobile
-                        ]) !!}
+            "placeholder" => "CNIC (13 digits)",
+            "class" => "form-control border-form upper",
+            "required",
+            "maxlength" => "13",
+            "id" => "cnic_no",
+            "inputmode" => "tel"   // better than "numeric" for mobile
+        ]) !!}
                         @include('includes.form_fields_validation_message', ['name' => 'cnic_no'])
                     </div>
                 </div>
@@ -283,16 +296,16 @@
 
             $(".input-mask-mobile").inputmask("0399-9999999");
             if (/Mobi|Android/i.test(navigator.userAgent)) {
-                document.addEventListener("DOMContentLoaded", function() {
+                document.addEventListener("DOMContentLoaded", function () {
                     const cnicField = document.getElementById("cnic_no");
-                
-                    cnicField.addEventListener("input", function(e) {
+
+                    cnicField.addEventListener("input", function (e) {
                         let value = e.target.value.replace(/\D/g, ""); // digits only
-                
+
                         if (value.length > 13) {
                             value = value.substr(0, 13);
                         }
-                
+
                         // Apply CNIC format: 5-7-1 digits
                         let formatted = value;
                         if (value.length > 5) {
@@ -301,12 +314,12 @@
                         if (value.length > 12) {
                             formatted = formatted.substr(0, 13) + '-' + formatted.substr(13);
                         }
-                
+
                         e.target.value = formatted;
                     });
                 });
-                
-                
+
+
             } else {
                 $("#cnic_no").inputmask("9999999999999");
             }

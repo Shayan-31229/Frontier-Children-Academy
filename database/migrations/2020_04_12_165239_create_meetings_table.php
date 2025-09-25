@@ -38,7 +38,9 @@ class CreateMeetingsTable extends Migration
                 $table->text('ref_text')->nullable();
 
                 $table->boolean('status')->default(0);
+                $table->integer("branch_id")->default(1);
 
+                $table->foreign("branch_id")->references("id")->on("branches");
                 $table->foreign('semesters_id')->references('id')->on('semesters');
                 $table->foreign('subjects_id')->references('id')->on('subjects');
 

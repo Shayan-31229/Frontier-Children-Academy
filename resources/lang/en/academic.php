@@ -19,8 +19,8 @@ return [
                             'child'     =>    [
                                 'department_head'  =>  'Department Head',
                                 'department'        =>  'Department',
-                                'faculty'            =>  'Program/Class',
-                                'semester'          =>  'Semester/Section',
+                                'faculty'            =>  'Class',
+                                'semester'          =>  'Section',
                                 'batch'             =>  'Batch',
                             ],
                         ],

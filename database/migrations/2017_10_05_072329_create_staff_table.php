@@ -69,8 +69,10 @@ class CreateStaffTable extends Migration
 
                 $table->text('staff_image')->nullable();
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
 
                 $table->foreign('designation')->references('id')->on('staff_designations');
+                $table->foreign("branch_id")->references("id")->on("branches");
             });
 
         }

@@ -58,7 +58,8 @@ class CreateStudentsTable extends Migration
                 $table->string('old_school_leaving_reason', '200')->nullable();
                 $table->string('old_school_name', '80')->nullable();
                 /* The above properties were added for Frontier Children Academy */
-
+                
+                $table->text("extra_info")->nullable();
                 $table->text('student_image')->nullable();
                 $table->text('student_signature')->nullable();
 

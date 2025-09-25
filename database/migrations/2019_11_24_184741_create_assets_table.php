@@ -25,6 +25,10 @@ class CreateAssetsTable extends Migration
                 $table->integer('quantity')->default(0);
                 $table->integer('rate')->default(0);
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
 
             });
 

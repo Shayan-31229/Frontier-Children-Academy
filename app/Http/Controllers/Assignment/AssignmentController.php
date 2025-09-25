@@ -249,7 +249,7 @@ class AssignmentController extends CollegeBaseController
         $data['answers'] = $data['assignment']->answers()->select('assignment_answers.id','assignment_answers.answer_text',
                         'assignment_answers.file','assignment_answers.approve_status','assignment_answers.status',
                         's.reg_no','s.id as students_id','s.first_name',
-                        's.middle_name','s.last_name','s.student_image')
+                        's.last_name','s.student_image')
                         ->join('students as s','s.id','=','assignment_answers.students_id')
                         ->get();
         return view(parent::loadDataToView($this->view_path.'.detail.index'), compact('data'));

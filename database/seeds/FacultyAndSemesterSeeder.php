@@ -14,22 +14,85 @@ class FacultyAndSemesterSeeder extends Seeder
         // Step 1: Insert faculties with their properties
         $faculties = [
             [
-                'faculty' => 'POST RN',
-                'faculty_code' => 'POST-RN',
+                'faculty' => 'Kinder Garden',
+                'faculty_code' => 'KG',
                 'scale' => 100,
                 'duration' => 2,
                 'credit_required' => 2,
             ],
             [
-                'faculty' => 'BSN Program',
-                'faculty_code' => 'BSN',
-                'scale' => 4,
+                'faculty' => 'Nursary',
+                'faculty_code' => 'NR',
+                'scale' => 100,
                 'duration' => 4,
                 'credit_required' => 2,
             ],
             [
-                'faculty' => 'LHV Program',
-                'faculty_code' => 'LHV',
+                'faculty' => 'Class I',
+                'faculty_code' => 'I',
+                'scale' => 100,
+                'duration' => 2,
+                'credit_required' => 60,
+            ],
+            [
+                'faculty' => 'Class II',
+                'faculty_code' => 'II',
+                'scale' => 100,
+                'duration' => 2,
+                'credit_required' => 60,
+            ],
+            [
+                'faculty' => 'Class III',
+                'faculty_code' => 'III',
+                'scale' => 100,
+                'duration' => 2,
+                'credit_required' => 60,
+            ],
+            [
+                'faculty' => 'Class IV',
+                'faculty_code' => 'IV',
+                'scale' => 100,
+                'duration' => 2,
+                'credit_required' => 60,
+            ],
+            [
+                'faculty' => 'Class V',
+                'faculty_code' => 'V',
+                'scale' => 100,
+                'duration' => 2,
+                'credit_required' => 60,
+            ],
+            [
+                'faculty' => 'Class VI',
+                'faculty_code' => 'VI',
+                'scale' => 100,
+                'duration' => 2,
+                'credit_required' => 60,
+            ],
+            [
+                'faculty' => 'Class VII',
+                'faculty_code' => 'VII',
+                'scale' => 100,
+                'duration' => 2,
+                'credit_required' => 60,
+            ],
+            [
+                'faculty' => 'Class VIII',
+                'faculty_code' => 'VIII',
+                'scale' => 100,
+                'duration' => 2,
+                'credit_required' => 60,
+            ],
+            [
+                'faculty' => 'Class IX',
+                'faculty_code' => 'IX',
+                'scale' => 100,
+                'duration' => 2,
+                'credit_required' => 60,
+            ],
+            [
+                'faculty' => 'Class X',
+                'faculty_code' => 'X',
                 'scale' => 100,
                 'duration' => 2,
                 'credit_required' => 60,
@@ -53,15 +116,24 @@ class FacultyAndSemesterSeeder extends Seeder
         $facultyIds = DB::table('faculties')->pluck('id', 'faculty_code');
 
         // Step 2: Insert semesters
-        $this->seedSemesters('BSN', 8, $facultyIds['BSN'], $now);
-        $this->seedSemesters('POST-RN', 4, $facultyIds['POST-RN'], $now);
-        $this->seedSemesters('LHV', 4, $facultyIds['LHV'], $now);
+        $this->seedSemesters('KG', 2, $facultyIds['KG'], $now);
+        $this->seedSemesters('NR', 2, $facultyIds['NR'], $now);
+        $this->seedSemesters('I', 2, $facultyIds['I'], $now);
+        $this->seedSemesters('II', 2, $facultyIds['II'], $now);
+        $this->seedSemesters('III', 2, $facultyIds['III'], $now);
+        $this->seedSemesters('IV', 2, $facultyIds['IV'], $now);
+        $this->seedSemesters('V', 2, $facultyIds['V'], $now);
+        $this->seedSemesters('VI', 2, $facultyIds['VI'], $now);
+        $this->seedSemesters('VII', 2, $facultyIds['VII'], $now);
+        $this->seedSemesters('VIII', 2, $facultyIds['VIII'], $now);
+        $this->seedSemesters('IX', 2, $facultyIds['IX'], $now);
+        $this->seedSemesters('X', 2, $facultyIds['X'], $now);
     }
 
     private function seedSemesters(string $facultyCode, int $count, int $facultyId, Carbon $now)
     {
         for ($i = 1; $i <= $count; $i++) {
-            $semesterName = "Semester {$i}";
+            $semesterName = chr($i + 64);
             $slug = Str::slug("{$facultyCode}-{$semesterName}");
 
             DB::table('semesters')->insert([

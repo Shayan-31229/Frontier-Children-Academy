@@ -45,7 +45,7 @@ class AttendanceController extends CollegeBaseController
                 'attendances.day_19', 'attendances.day_20', 'attendances.day_21', 'attendances.day_22', 'attendances.day_23',
                 'attendances.day_24', 'attendances.day_25', 'attendances.day_26', 'attendances.day_27', 'attendances.day_28',
                 'attendances.day_29', 'attendances.day_30', 'attendances.day_31', 's.id as students_id', 's.reg_no',
-                's.first_name', 's.middle_name', 's.last_name', 's.faculty', 's.semester')
+                's.first_name', 's.last_name', 's.faculty', 's.semester')
                 ->where(function ($query) use ($request) {
                     if ($request->has('year') && $request->get('year') != 0) {
                         $query->where('attendances.years_id', '=', $request->year);

@@ -23,7 +23,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="text-uppercase text-center">
-                            @if(env('APP_STATUS')!=0)
+                            <!-- @if(env('APP_STATUS')!=0)
                                 <span><i class="ace-icon fa fa-certificate bigger-110 red"></i> License Expired</span>
                             @else
                                 <span><i class="ace-icon fa fa-certificate bigger-110 green"></i></span>
@@ -33,7 +33,7 @@
                                 <span><i class="ace-icon fa fa-phone bigger-110 red"></i> Support Expired</span>
                             @else
                                 <span> <i class="ace-icon fa fa-comment bigger-110 green"></i></span>
-                            @endif
+                            @endif -->
                         </td>
 
                     </tr>
@@ -45,11 +45,11 @@
                         <td class="blue text-right">Buy Date:</td>
                         <td>{{\Carbon\Carbon::parse($body->sold_at)->format('Y M, d')}}
 
-                            @if(env('APP_STATUS')!=0)
+                            <!-- @if(env('APP_STATUS')!=0)
                                 <span><i class="ace-icon fa fa-certificate bigger-110 red"></i> License Expired</span>
                             @else
                                 <span><i class="ace-icon fa fa-certificate bigger-110 green"></i> {{\Carbon\Carbon::parse($body->sold_at)->diffForHumans()}}</span>
-                            @endif
+                            @endif -->
                         </td>
                     </tr>
                     <tr>

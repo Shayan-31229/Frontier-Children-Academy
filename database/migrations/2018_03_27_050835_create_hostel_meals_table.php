@@ -26,6 +26,10 @@ class CreateHostelMealsTable extends Migration
                 $table->unsignedInteger('foods_id');
 
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
             });
 
         }

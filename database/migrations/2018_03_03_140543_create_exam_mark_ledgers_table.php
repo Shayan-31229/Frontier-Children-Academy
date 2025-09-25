@@ -34,6 +34,10 @@ class CreateExamMarkLedgersTable extends Migration
                 $table->boolean('status')->default(1);
 
                 $table->foreign('students_id')->references('id')->on('students');
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
             });
 
         }

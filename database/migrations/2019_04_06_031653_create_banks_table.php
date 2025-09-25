@@ -26,8 +26,12 @@ class CreateBanksTable extends Migration
                 $table->string('ac_name', '100');
                 $table->string('ac_number', '50');
                 $table->string('branch', '50');
-
                 $table->boolean('status')->default(1);
+                
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
             });
 
         }

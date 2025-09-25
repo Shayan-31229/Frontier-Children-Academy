@@ -36,7 +36,7 @@ return [
                     ],
                     'fields' =>
                         [
-                            'cnic_no'                       =>  'CNIC No.',
+                            'cnic_no'                       =>  'CNIC/Form B',
                             'reg_no'                        =>  'Admission.No.',
                             'reg_date'                      =>  'Admission. Date',
                             'test_date'                     =>  'Test Date',
@@ -57,9 +57,7 @@ return [
                             'religion'                      =>  'Religion',//Religion
                             'domicile_id'                   =>  'Domicile',
                             'religion_default'              =>  '',//Default PlaceHolder
-                            'caste'                         =>  'Caste',
                             'nationality'                   =>  'Nationality',
-                            'mother_tongue'                 =>  'Mother Tongue',
                             'email'                         =>  'E-mail',
                             'extra_info'                    =>  'Extra Info',
                             'student_image'                 =>  'Student Profile Picture',
@@ -70,6 +68,10 @@ return [
                             'admission_payment_ref_no'      =>  'Admission Payment Ref No.',
                             'payment_date'                  =>  'Payment Date',
                             'university_enrollment_no'      =>  'University Enrollment No.',
+                            'old_school_slc_no'             =>  'Old School SLC#',
+                            'old_school_slc_date'           =>  'SLC Date.',
+                            'old_school_leaving_reason'     =>  'Leaving Reason',
+                            'old_school_name'               =>  'School Name',
                             'admission_date'                =>  'Admission Date',
                             'admission_no'                  =>  'Admission No.',
                             'admission_course_fee'          =>  'Admission Course Fee',

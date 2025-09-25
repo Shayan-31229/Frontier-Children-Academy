@@ -585,7 +585,7 @@ class FeesCollectionController extends CollegeBaseController
     public function studentDetail(Request $request)
     {
         $student = Student::select('id', 'reg_no', 'reg_date', 'university_reg','faculty','semester',
-            'academic_status', 'first_name', 'middle_name', 'last_name', 'date_of_birth', 'gender',
+            'academic_status', 'first_name', 'last_name', 'date_of_birth', 'gender',
             'email', 'extra_info', 'student_image','student_signature','status')
             ->where('id', '=', $request->get('id'))->first();
 

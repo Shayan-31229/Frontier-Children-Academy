@@ -32,6 +32,9 @@ class CreateResidentsTable extends Migration
                 $table->dateTime('leave_date')->nullable();
 
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
 
                 $table->foreign('hostels_id')->references('id')->on('hostels');
                 $table->foreign('rooms_id')->references('id')->on('rooms');

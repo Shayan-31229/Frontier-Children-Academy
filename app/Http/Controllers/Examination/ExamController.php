@@ -160,7 +160,7 @@ class ExamController extends CollegeBaseController
     {
         $data = [];
         if($request->all()) {
-            $data['student'] = Student::select('id', 'reg_no', 'reg_date', 'first_name', 'middle_name', 'last_name',
+            $data['student'] = Student::select('id', 'reg_no', 'reg_date', 'first_name', 'last_name',
                 'faculty', 'semester','academic_status', 'status')
                 ->where(function ($query) use ($request) {
                     $this->commonStudentFilterCondition($query, $request);
@@ -231,7 +231,7 @@ class ExamController extends CollegeBaseController
                 if(count($examScheduleId) > 0){
                     $data['ledger_exist'] = ExamMarkLedger::select('exam_mark_ledgers.exam_schedule_id', 'exam_mark_ledgers.students_id',
                         'exam_mark_ledgers.obtain_mark_theory', 'exam_mark_ledgers.obtain_mark_practical', 'exam_mark_ledgers.absent_theory','exam_mark_ledgers.absent_practical',
-                        'exam_mark_ledgers.status', 's.id as student_id', 's.reg_no', 's.first_name', 's.middle_name', 's.last_name',
+                        'exam_mark_ledgers.status', 's.id as student_id', 's.reg_no', 's.first_name', 's.last_name',
                         's.last_name')
                         ->where('exam_mark_ledgers.exam_schedule_id', $examScheduleId)
                         //->where('s.batch', intval($batch))
@@ -321,7 +321,7 @@ class ExamController extends CollegeBaseController
                 if(count($examScheduleId) > 0){
                     $data['ledger_exist'] = ExamMarkLedger::select('exam_mark_ledgers.exam_schedule_id', 'exam_mark_ledgers.students_id',
                         'exam_mark_ledgers.obtain_mark_theory', 'exam_mark_ledgers.obtain_mark_practical', 'exam_mark_ledgers.absent_theory','exam_mark_ledgers.absent_practical',
-                        'exam_mark_ledgers.status', 's.id as student_id', 's.reg_no', 's.first_name', 's.middle_name', 's.last_name',
+                        'exam_mark_ledgers.status', 's.id as student_id', 's.reg_no', 's.first_name', 's.last_name',
                         's.last_name')
                         ->where('exam_mark_ledgers.exam_schedule_id', $examScheduleId)
                         ->join('students as s', 's.id', '=', 'exam_mark_ledgers.students_id')

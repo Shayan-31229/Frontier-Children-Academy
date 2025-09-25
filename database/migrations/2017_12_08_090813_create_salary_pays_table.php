@@ -30,6 +30,9 @@ class CreateSalaryPaysTable extends Migration
                 $table->string('payment_mode', '15');
                 $table->string('note', '100')->nullable();
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
 
                 $table->foreign('staff_id')->references('id')->on('staff');
                 $table->foreign('salary_masters_id')->references('id')->on('payroll_masters');

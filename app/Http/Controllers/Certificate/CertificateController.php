@@ -79,7 +79,7 @@ class CertificateController extends CollegeBaseController
             /*$data['history'] = CertificateHistory::select('certificate_histories.certificate', 'certificate_histories.certificate_id',
                 'certificate_histories.history_type', 'certificate_histories.ref_text', 's.reg_no',
                 's.reg_date', 's.faculty', 's.semester', 's.batch', 's.academic_status',
-                's.first_name', 's.middle_name', 's.last_name', 'ac.id as certificate_id','ac.date_of_issue',
+                's.first_name', 's.last_name', 'ac.id as certificate_id','ac.date_of_issue',
                 'ac.year_of_study', 'ac.percentage_of_attendance')
                 ->where(function ($query) use ($request) {
 

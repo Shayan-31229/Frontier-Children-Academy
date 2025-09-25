@@ -47,6 +47,10 @@ class CreateExamSchedulesTable extends Migration
                 $table->foreign('faculty_id')->references('id')->on('faculties');
                 $table->foreign('semesters_id')->references('id')->on('semesters');
                 $table->foreign('subjects_id')->references('id')->on('subjects');
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
             });
 
         }

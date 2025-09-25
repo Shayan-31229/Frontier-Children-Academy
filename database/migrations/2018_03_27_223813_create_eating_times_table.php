@@ -24,6 +24,10 @@ class CreateEatingTimesTable extends Migration
                 $table->string('title', '25')->unique();
                 $table->time('time')->nullable();
                 $table->boolean('status')->default(1);
+                $table->integer("branch_id")->default(1);
+
+                $table->foreign("branch_id")->references("id")->on("branches");
+
             });
         }
     }
