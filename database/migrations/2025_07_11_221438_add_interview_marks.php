@@ -14,12 +14,8 @@ class AddInterviewMarks extends Migration
     public function up()
     {
         Schema::table('students', function (Blueprint $table) {
-        $table->integer('interview_marks')->nullable()->after('status'); 
-        $table->date('call_date')->nullable()->after('interview_marks'); 
-        $table->string('form_no', 50)->nullable()->after('call_date'); 
-        $table->string('kmu_reg_no', 50)->nullable()->after('form_no'); 
-        $table->string('pnc_reg_no', 50)->nullable()->after('kmu_reg_no'); 
-        $table->string('father_cnic', 15)->nullable()->after('pnc_reg_no'); 
+        $table->date('call_date')->nullable()->after('status');
+        $table->string('father_cnic', 15)->nullable()->after('call_date'); 
         $table->integer('fine_exempted')->default(0)->after('father_cnic'); 
         $table->unsignedBigInteger('domicile_id')->nullable()->after('fine_exempted');
         $table->date('arrival_date')->nullable()->after('domicile_id');

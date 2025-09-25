@@ -17,7 +17,7 @@ return [
                                                                 'mother'            => 0,
                                                                 'guardian'          => 1,
                                                             ],
-                                    'academic_info'     =>  1,
+                                    'academic_info'     =>  0,
                                     'profile_image'     =>  1,
                                     'annexure'          =>  0,
                                     'extra_info'        =>  0,

@@ -55,11 +55,16 @@ class CreateStudentsTable extends Migration
                 $table->string('mobile_2', '15')->nullable();
 
                 $table->string('extra_info', '100')->nullable();
+                /* The below properties were added for Frontier Children Academy */
+                $table->string('slc_no', '50')->nullable();
+                $table->string('school_leaving_reason', '200')->nullable();
+                $table->string('old_school_leaving_reason', '200')->nullable();
+                $table->string('previous_school', '80')->nullable();
+                $table->date('slc_issuance_date')->nullable();
+                /* The above properties were added for Frontier Children Academy */
 
                 $table->text('student_image')->nullable();
                 $table->text('student_signature')->nullable();
-
-
 
                 $table->integer('reg_fee')->nullable();
                 $table->string('sbi_collect_no', '50')->nullable();
@@ -81,6 +86,7 @@ class CreateStudentsTable extends Migration
                 $table->foreign('semester')->references('id')->on('semesters');
                 $table->foreign('academic_status')->references('id')->on('student_statuses');
                 $table->foreign('batch')->references('id')->on('student_batches');
+
 
             });
 

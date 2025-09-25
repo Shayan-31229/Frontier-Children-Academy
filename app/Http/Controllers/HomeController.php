@@ -369,15 +369,17 @@ class HomeController extends CollegeBaseController
 
     public function welcome(){
 
+        
         $data =[];
         if(Auth::check()){
             return redirect()->route('dashboard');
         }else{
-            $data = [];
-            $data['menus'] = WebMenu::where('slug','=', 'welcome_menu')->first();
-            $data['pages'] = WebPage::where('status', 1)->orderBy('title','asc')->get();
-            $data['welcome_menu'] = $data['menus']->pages()->orderBy('rank')->get();
-            return view(parent::loadDataToView('welcome'), compact('data'));
+            // $data = [];
+            // $data['menus'] = WebMenu::where('slug','=', 'welcome_menu')->first();
+            // $data['pages'] = WebPage::where('status', 1)->orderBy('title','asc')->get();
+            // $data['welcome_menu'] = $data['menus']->pages()->orderBy('rank')->get();
+            // return view(parent::loadDataToView('welcome'), compact('data'));
+            return redirect()->route('login');
         }
     }
 
