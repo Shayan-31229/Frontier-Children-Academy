@@ -39,7 +39,7 @@ class AttendanceCertificateController extends CollegeBaseController
         $data = [];
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date',
             'students.faculty', 'students.semester', 'students.batch', 'students.academic_status', 'students.first_name',
-            'students.middle_name', 'students.last_name', 'ac.id as certificate_id','ac.date_of_issue', 'ac.year_of_study',
+            'students.last_name', 'ac.id as certificate_id','ac.date_of_issue', 'ac.year_of_study',
             'ac.percentage_of_attendance')
             ->where(function ($query) use ($request) {
 
@@ -130,8 +130,8 @@ class AttendanceCertificateController extends CollegeBaseController
         $data = [];
         $data['row'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
             'students.faculty', 'students.semester', 'students.batch', 'students.academic_status', 'students.first_name',
-            'students.middle_name', 'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',
-            'students.nationality', 'students.religion', 'students.caste', 'ac.id as certificate_id','ac.date_of_issue',
+            'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',
+            'students.nationality', 'students.religion',  'ac.id as certificate_id','ac.date_of_issue',
             'ac.year_of_study', 'ac.percentage_of_attendance')
             ->join('attendance_certificates as ac', 'ac.students_id', '=', 'students.id')
             ->find($id);
@@ -184,8 +184,8 @@ class AttendanceCertificateController extends CollegeBaseController
         $id = decrypt($id);
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
             'students.faculty', 'students.semester', 'students.batch', 'students.academic_status', 'students.first_name',
-            'students.middle_name', 'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',
-            'students.nationality', 'students.religion', 'students.caste', 'students.student_image','ac.id as certificate_id',
+            'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',
+            'students.nationality', 'students.religion',  'students.student_image','ac.id as certificate_id',
             'ac.date_of_issue', 'ac.year_of_study', 'ac.percentage_of_attendance', 'ac.ref_text', 'ac.created_by', 'ac.last_updated_by')
             ->where('students.id',$id)
             ->join('attendance_certificates as ac', 'ac.students_id', '=', 'students.id')
@@ -280,9 +280,9 @@ class AttendanceCertificateController extends CollegeBaseController
         $students = Student::select('id')->whereIn('id',$studIds)->get();
         $filteredStudent = $students->filter(function ($student, $key) use($certificateTemplate) {
             $data = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-                'students.faculty','students.semester', 'students.batch','students.academic_status', 'students.first_name', 'students.middle_name',
+                'students.faculty','students.semester', 'students.batch','students.academic_status', 'students.first_name',
                 'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion',
-                'students.caste','students.nationality', 'students.mother_tongue', 'students.email', 'students.extra_info',
+                'students.nationality', 'students.email', 'students.extra_info',
                 'students.status',
                 'ai.address', 'ai.state', 'ai.country', 'ai.temp_address', 'ai.temp_state', 'ai.temp_country', 'ai.home_phone',
                 'ai.mobile_1', 'ai.mobile_2',

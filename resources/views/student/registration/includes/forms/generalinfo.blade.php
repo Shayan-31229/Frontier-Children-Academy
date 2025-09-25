@@ -1,7 +1,17 @@
+<!-- @section("css")
+<style>
+    .header-color-green {
+            background-color: #82af6f;
+            color: #fff;
+            border-color: #82af6f;
+        }
+</style>
+
+@endsection -->
 @if(Config::get('edufirmconfig.student.registration.tabs.general_info.general_info') == 1)
 
-    <div class="widget-box transparent">
-        <div class="widget-header widget-header-small header-color-blue">
+    <div class="widget-box">
+        <div class="widget-header widget-header-small header-color-green">
             <h4 class="widget-title lighter">
                 <i class="ace-icon fa fa-info-circle blue"></i>
                 {{ __('form_fields.student.section_label.general_info')}}
@@ -163,7 +173,7 @@
 
 {{-- Contact Info --}}
 @if(Config::get('edufirmconfig.student.registration.tabs.general_info.contact_info') == 1)
-    <div class="widget-box transparent">
+    <div class="widget-box">
         <div class="widget-header widget-header-small header-color-green">
             <h4 class="widget-title lighter">
                 <i class="ace-icon fa fa-phone green"></i>
@@ -196,7 +206,7 @@
 
 {{-- Permanent Address --}}
 @if(Config::get('edufirmconfig.student.registration.tabs.general_info.address') == 1)
-    <div class="widget-box transparent">
+    <div class="widget-box">
         <div class="widget-header widget-header-small header-color-orange">
             <h4 class="widget-title lighter">
                 <i class="ace-icon fa fa-map-marker orange"></i>
@@ -224,7 +234,7 @@
 
 {{-- Temporary Address --}}
 @if(Config::get('edufirmconfig.student.registration.tabs.general_info.temp_address') == 1)
-    <div class="widget-box transparent">
+    <div class="widget-box">
         <div class="widget-header widget-header-small header-color-purple">
             <h4 class="widget-title lighter">
                 <i class="ace-icon fa fa-map purple"></i>

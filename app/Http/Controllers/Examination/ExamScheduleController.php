@@ -463,7 +463,7 @@ class ExamScheduleController extends CollegeBaseController
         if ($data['ledger_exist']) {
             $student_id = $data['ledger_exist']->pluck('students_id');
             $exam_schedule_id = $examIds;
-            $students = Student::select('students.id', 'students.faculty','students.semester', 'students.first_name', 'students.middle_name',
+            $students = Student::select('students.id', 'students.faculty','students.semester', 'students.first_name', 
                 'students.last_name', 'students.email', 'ai.mobile_1', 'gd.guardian_first_name',
                 'gd.guardian_mobile_1', 'gd.guardian_email')
                 ->whereIn('students.id', $student_id)
@@ -712,7 +712,7 @@ class ExamScheduleController extends CollegeBaseController
         if ($data['ledger_exist']) {
             $student_id = $data['ledger_exist']->pluck('students_id');
             $exam_schedule_id = $examIds;
-            $students = Student::select('students.id', 'students.faculty','students.semester', 'students.first_name', 'students.middle_name',
+            $students = Student::select('students.id', 'students.faculty','students.semester', 'students.first_name', 
                 'students.last_name', 'students.email', 'ai.mobile_1','pd.father_first_name','pd.father_mobile_1','pd.father_email')
                 ->whereIn('students.id', $student_id)
                 ->join('addressinfos as ai', 'ai.students_id', '=', 'students.id')

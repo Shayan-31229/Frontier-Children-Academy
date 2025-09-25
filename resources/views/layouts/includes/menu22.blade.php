@@ -773,6 +773,73 @@
             </li>
         @endif
         @endability
+{{-- Transport --}}
+        <!-- @ability('super-admin','transport')
+        @if( isset($generalSetting) && $generalSetting->transport ==1)
+            <li class="{!! request()->is('transport*')?'active':'' !!} hover">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon  fa fa-bus" aria-hidden="true"></i>
+                    <span class="menu-text"> {{__('transport.name')}} </span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+                <b class="arrow"></b>
+                <ul class="submenu">
+                    <li class="{!! request()->is('transport/user*')?'active':'' !!} hover">
+                        <a href="{{ route('transport.user') }}" class="dropdown-toggle">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Traveller/User
+                            <b class="arrow"></b>
+                        </a>
+                        <b class="arrow"></b>
+                        <ul class="submenu">
+                            <li class="{!! request()->is('transport/user')?'active':'' !!} hover">
+                                <a href="{{ route('transport.user') }}">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    Detail
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="{!! request()->is('transport/user/add')?'active':'' !!} hover">
+                                <a href="{{ route('transport.user.add') }}">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    Registration
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class="{!! request()->is('transport/user/history')?'active':'' !!} hover">
+                                <a href="{{ route('transport.user.history') }}">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    User History
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="{!! request()->is('transport/route*')?'active':'' !!} hover">
+                        <a href="{{ route('transport.route') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Route
+                            <b class="arrow"></b>
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="{!! request()->is('transport/vehicle*')?'active':'' !!} hover">
+                        <a href="{{ route('transport.vehicle') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Vehicle
+                            <b class="arrow"></b>
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+
+                </ul>
+            </li>
+        @endif
+        @endability -->
 
         {{-- Attendance --}}
         @ability('super-admin','attendance')

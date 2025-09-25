@@ -1566,6 +1566,21 @@ Route::group(['prefix' => 'setting/', 'as' => 'setting', 'namespace' => 'Setting
 
 });
 
+
+
+Route::group(['prefix' => 'branch', 'as' => 'branch.', 'middleware' => ['auth','can:manage-branches']], function () {
+    Route::get('/', [App\Http\Controllers\Branch\BranchController::class, 'index'])->name('');
+    Route::get('/create', [App\Http\Controllers\Branch\BranchController::class, 'create'])->name('create');
+    Route::post('/store', [App\Http\Controllers\Branch\BranchController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [App\Http\Controllers\Branch\BranchController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [App\Http\Controllers\Branch\BranchController::class, 'update'])->name('update');
+    Route::delete('/{id}', [App\Http\Controllers\Branch\BranchController::class, 'destroy'])->name('destroy');
+    Route::get('/{id}/toggle', [App\Http\Controllers\Branch\BranchController::class, 'toggleStatus'])->name('toggle');
+});
+Route::post('switch-branch', [App\Http\Controllers\Branch\BranchSwitchController::class, 'switch'])
+    ->name('switch.branch')
+    ->middleware('auth');
+
 /*Frontier Children Academy Super Suit Grouping - user activity, database backup, cronjob, Developer Guide*/
 Route::group(['prefix' => 'super-suit/', 'as' => 'super-suit', 'namespace' => 'SuperSuit\\'], function () {
     /* User Activity */

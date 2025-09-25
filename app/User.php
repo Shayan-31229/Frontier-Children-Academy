@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use App\Models\Role;
+use App\Models\Branch;
+
 use Illuminate\Support\Facades\Auth;
 use Zizaco\Entrust\Entrust;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
@@ -26,7 +28,18 @@ class User extends Authenticatable implements AuditableContract
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','last_login_at','last_login_ip', 'profile_image', 'contact_number', 'address',  'role_id', 'hook_id', 'status', 'fee_paid'
+        'name',
+        'email',
+        'password',
+        'last_login_at',
+        'last_login_ip',
+        'profile_image',
+        'contact_number',
+        'address',
+        'role_id',
+        'hook_id',
+        'status',
+        'fee_paid'
     ];
 
     /**
@@ -35,7 +48,8 @@ class User extends Authenticatable implements AuditableContract
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     public function userRole()
@@ -50,14 +64,19 @@ class User extends Authenticatable implements AuditableContract
 
     public function getStatusAttribute($value)
     {
-        return $value == 1?'active':'in-active';
+        return $value == 1 ? 'active' : 'in-active';
     }
 
     public function setStatusAttribute($value)
     {
-        $this->attributes['status'] = $value == 'active'?1:0;
+        $this->attributes['status'] = $value == 'active' ? 1 : 0;
     }
 
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
 
     //activity tracking
     public static function resolveId()

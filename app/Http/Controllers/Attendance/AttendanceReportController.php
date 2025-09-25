@@ -64,7 +64,7 @@ class AttendanceReportController extends CollegeBaseController
                             'attendances.day_24', 'attendances.day_25', 'attendances.day_26', 'attendances.day_27', 'attendances.day_28',
                             'attendances.day_29', 'attendances.day_30', 'attendances.day_31', 'attendances.day_32',
                             'students.id as students_id', 'students.reg_no',
-                            'students.first_name', 'students.middle_name', 'students.last_name', 'f.faculty','s.semester')
+                            'students.first_name', 'students.last_name', 'f.faculty','s.semester')
                             ->where('attendances.created_by', $id)
                             ->where('attendances.attendees_type', 1)
                             ->where('students.semester', $semesterStaff->id)
@@ -102,7 +102,7 @@ class AttendanceReportController extends CollegeBaseController
                     $students = Attendance::select('attendances.id', 'attendances.attendees_type', 'attendances.link_id',
                     'attendances.years_id', 'attendances.months_id', $day.' as attendance_status',
                     'students.id as students_id', 'students.reg_no',
-                    'students.first_name', 'students.middle_name', 'students.last_name', 'f.faculty','s.semester')
+                    'students.first_name', 'students.last_name', 'f.faculty','s.semester')
                     ->where('attendances.attendees_type', 1)
                     ->where(function ($query) use ($request,$day) {
 
@@ -142,7 +142,7 @@ class AttendanceReportController extends CollegeBaseController
                         'attendances.day_24', 'attendances.day_25', 'attendances.day_26', 'attendances.day_27', 'attendances.day_28',
                         'attendances.day_29', 'attendances.day_30', 'attendances.day_31','attendances.day_32',
                         'students.id as students_id', 'students.reg_no',
-                        'students.first_name', 'students.middle_name', 'students.last_name', 'f.faculty','s.semester')
+                        'students.first_name', 'students.last_name', 'f.faculty','s.semester')
                         ->where('attendances.attendees_type', 1)
                         ->where(function ($query) use ($request) {
 

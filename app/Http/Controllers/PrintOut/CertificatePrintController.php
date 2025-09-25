@@ -43,9 +43,9 @@ class CertificatePrintController extends CollegeBaseController
 
         $filteredStudent = $students->filter(function ($student, $key) use($certificateTemplate) {
             $data = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-                'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 'students.middle_name',
-                'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion', 'students.caste','students.nationality',
-                'students.mother_tongue', 'students.email', 'students.extra_info', 'students.status',
+                'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 
+                'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion', 'students.nationality',
+                 'students.email', 'students.extra_info', 'students.status',
                 'ai.address', 'ai.state', 'ai.country', 'ai.temp_address', 'ai.temp_state', 'ai.temp_country', 'ai.home_phone',
                 'ai.mobile_1', 'ai.mobile_2',
                 'pd.grandfather_first_name',
@@ -90,10 +90,10 @@ class CertificatePrintController extends CollegeBaseController
 
             $filteredStudent = $students->filter(function ($student, $key) use($certificateTemplate) {
                 $data = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-                    'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 'students.middle_name',
+                    'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 
                     'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion',
-                    'students.caste','students.nationality',
-                    'students.mother_tongue', 'students.email', 'students.extra_info', 'students.status',
+                    'students.nationality',
+                     'students.email', 'students.extra_info', 'students.status',
                     'ai.address', 'ai.state', 'ai.country', 'ai.temp_address', 'ai.temp_state', 'ai.temp_country', 'ai.home_phone',
                     'ai.mobile_1', 'ai.mobile_2', 'pd.grandfather_first_name',
                     'pd.grandfather_middle_name', 'pd.grandfather_last_name', 'pd.father_first_name', 'pd.father_middle_name',

@@ -7,6 +7,9 @@
 
 //helperfunction
 
+function current_branch() {
+    return auth()->check() ? auth()->user()->branch : null;
+}
 
 /*function envC($key, $default) {
 

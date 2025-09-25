@@ -6,18 +6,78 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends BaseModel
 {
-    protected $fillable = ['created_by', 'last_updated_by', 'reg_no', 'reg_date', 'university_reg','faculty','semester','batch',
-        'academic_status', 'first_name', 'middle_name', 'last_name', 'date_of_birth', 'gender', 'blood_group',
-        'nationality', 'cnic_no', 'religion', 'caste','mother_tongue', 'email', 'home_phone', 'mobile_1', 'mobile_2', 'extra_info', 
-        'student_image','student_signature','status', 'reg_fee','sbi_collect_no','bank_ref_no','payment_date','university_enrollment_no', 
-        'admission_date','admission_no', 'admission_payment_ref_no','admission_course_fee','special_category','weightage_claim',
-        'interview_marks', 'call_date', 'form_no', 'kmu_reg_no', 'pnc_reg_no', 'father_cnic', 'fine_exempted', 'domicile_id', 'arrival_date', 'previous_school',
-        'school_leaving_reason', 'slc_no', 'slc_issuance_date', 'old_school_leaving_reason'
-        ];
+    protected $fillable = [
+        'created_by',
+        'last_updated_by',
+        'reg_no',
+        'reg_date',
+        'university_reg',
+        'faculty',
+        'semester',
+        'batch',
+        'academic_status',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'date_of_birth',
+        'gender',
+        'blood_group',
+        'nationality',
+        'cnic_no',
+        'religion',
+        'caste',
+        'mother_tongue',
+        'email',
+        'home_phone',
+        'mobile_1',
+        'mobile_2',
+        'extra_info',
+        'student_image',
+        'student_signature',
+        'status',
+        'reg_fee',
+        'bank_ref_no',
+        'payment_date',
+        'university_enrollment_no',
+        'admission_date',
+        'admission_no',
+        'admission_payment_ref_no',
+        'admission_course_fee',
+        'form_no',
+        'father_cnic',
+        'fine_exempted',
+        'domicile_id',
+        'this_school_leaving_reason',  // this school leaving reason.
+        'this_school_slc_no',
+        'this_school_slc_issuance_date',
+        'test_date',
+        'old_school_slc_no',
+        'old_school_slc_date',
+        'old_school_leaving_reason',
+        'old_school_name',
+        'branch_id',
+
+    ];
+
+    protected static function booted()
+    {
+        static::creating(function ($model) {
+            if (auth()->check() && auth()->user()->branch_id) {
+                $model->branch_id = auth()->user()->branch_id;
+            }
+        });
+
+        static::addGlobalScope(new \App\Traits\BranchScope);
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo(\App\Models\Branch::class);
+    }
 
     public function address()
     {
-        return $this->hasOne(Addressinfo::class,'students_id', 'id');
+        return $this->hasOne(Addressinfo::class, 'students_id', 'id');
     }
 
     public function parents()
@@ -47,7 +107,7 @@ class Student extends BaseModel
 
     public function studentSubjects()
     {
-        return $this->belongsToMany(Subject::class,'student_subject','students_id','id');
+        return $this->belongsToMany(Subject::class, 'student_subject', 'students_id', 'id');
     }
 
     public function annexure()
@@ -70,25 +130,25 @@ class Student extends BaseModel
         return $this->hasOne(StudentPlacement::class, 'students_id', 'id');
     }
 
-//    public function studentDegrees()
+    //    public function studentDegrees()
 //    {
 //        //return $this->belongsToMany(StudentDegree::class, 'student_degrees','students_id', 'id');
 //        return $this->belongsToMany(StudentDegree::class, 'student_degrees','students_id', 'id');
 //    }
     public function studentDegrees()
     {
-       // return $this->hasMany(StudentDegree::class, 'students_id', 'id');
+        // return $this->hasMany(StudentDegree::class, 'students_id', 'id');
         return $this->hasMany(StudentDegree::class, 'students_id', 'id');
     }
 
     public function studentNotes()
     {
-        return $this->hasMany(Note::class,'member_id','id')->where('member_type','=','student');
+        return $this->hasMany(Note::class, 'member_id', 'id')->where('member_type', '=', 'student');
     }
 
     public function studentDocuments()
     {
-        return $this->hasMany(Document::class,'member_id','id')->where('member_type','=','student');
+        return $this->hasMany(Document::class, 'member_id', 'id')->where('member_type', '=', 'student');
     }
 
     public function feeMaster()
@@ -109,14 +169,14 @@ class Student extends BaseModel
     //assignment Answer
     public function assignmentAnswers()
     {
-        return $this->hasMany(AssignmentAnswer::class,'students_id','id');
+        return $this->hasMany(AssignmentAnswer::class, 'students_id', 'id');
 
     }
 
     //Library Member
     public function libraryMember()
     {
-        return $this->hasMany(LibraryMember::class,'member_id','id')->where('user_type','=',1);
+        return $this->hasMany(LibraryMember::class, 'member_id', 'id')->where('user_type', '=', 1);
     }
 
     //Library Book Requested by Member
@@ -128,25 +188,25 @@ class Student extends BaseModel
     //transport User
     public function transportUser()
     {
-        return $this->hasMany(TransportUser::class,'member_id','id')->where('user_type','=',1);
+        return $this->hasMany(TransportUser::class, 'member_id', 'id')->where('user_type', '=', 1);
     }
 
     //Hostel Resident
     public function hostelResident()
     {
-        return $this->hasMany(Resident::class,'member_id','id')->where('user_type','=',1);
+        return $this->hasMany(Resident::class, 'member_id', 'id')->where('user_type', '=', 1);
     }
 
     //Regular Attendance
     public function regularAttendance()
     {
-        return $this->hasMany(Attendance::class,'link_id','id')->where('attendees_type','=',1);
+        return $this->hasMany(Attendance::class, 'link_id', 'id')->where('attendees_type', '=', 1);
     }
 
     //Regular Attendance
     public function subjectAttendance()
     {
-        return $this->hasMany(SubjectAttendance::class,'link_id','id');
+        return $this->hasMany(SubjectAttendance::class, 'link_id', 'id');
     }
 
     //certificates

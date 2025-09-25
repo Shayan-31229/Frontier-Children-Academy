@@ -18,9 +18,9 @@ class StudentsExport implements FromView
     public function view(): View
     {
         $students = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-            'students.faculty', 'students.semester', 'students.academic_status', 'students.first_name', 'students.middle_name',
+            'students.faculty', 'students.semester', 'students.academic_status', 'students.first_name',
             'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group', 'students.nationality',
-            'students.mother_tongue', 'students.email', 'students.extra_info', 'students.status',
+            'students.email', 'students.extra_info', 'students.status',
 
             'pd.grandfather_first_name', 'pd.grandfather_middle_name', 'pd.grandfather_last_name', 'pd.father_first_name',
             'pd.father_middle_name', 'pd.father_last_name', 'pd.father_eligibility', 'pd.father_occupation',

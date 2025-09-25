@@ -13,7 +13,6 @@
                     @include('dashboard.includes.notice')
                     @include('dashboard.includes.buttons')
                 </div><!-- /.page-header -->
-
                 <div class="row">
                     <div class="col-xs-12">
                     <!-- PAGE CONTENT BEGINS -->
@@ -39,9 +38,7 @@
                                 @role(['super-admin','admin','account'])
                                     @include('dashboard.includes.account')
                                 @endrole
-                                @role(['super-admin','admin','library'])
-                                    @include('dashboard.includes.library')
-                                @endrole
+
                                 @role(['super-admin','admin'])
                                 @include('dashboard.includes.attendance')
                                 @endrole

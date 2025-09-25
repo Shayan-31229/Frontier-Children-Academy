@@ -74,7 +74,7 @@ class OnlinePaymentController extends CollegeBaseController
         $data = [];
         if($request->all()){
             $students = Student::select('students.id','students.reg_no','students.first_name',
-                'students.middle_name', 'students.last_name','students.faculty','students.semester',
+                'students.last_name','students.faculty','students.semester',
                 'op.id as payment_id','op.date', 'op.amount', 'op.payment_gateway', 'op.ref_no', 'op.ref_text','op.verify_method',
                 'op.status as payment_status','op.created_by as paid_by')
                 ->where(function ($query) use ($request) {
@@ -107,7 +107,7 @@ class OnlinePaymentController extends CollegeBaseController
                 ->get();
         }else{
             $students = Student::select('students.id','students.reg_no','students.first_name',
-                'students.middle_name', 'students.last_name','students.faculty','students.semester',
+                'students.last_name','students.faculty','students.semester',
                 'op.id as payment_id','op.date', 'op.amount', 'op.payment_gateway', 'op.ref_no', 'op.ref_text','op.verify_method',
                 'op.status as payment_status','op.created_by as paid_by')
                 //->where('op.status',0)
@@ -150,7 +150,7 @@ class OnlinePaymentController extends CollegeBaseController
         $id = decrypt($id);
 
         $data['student'] = Student::select('students.id','students.reg_no','students.first_name',
-            'students.middle_name', 'students.last_name','students.faculty','students.semester',
+            'students.last_name','students.faculty','students.semester',
             'op.id as payment_id','op.date', 'op.amount', 'op.payment_gateway', 'op.ref_no', 'op.ref_text','op.note','op.verify_method',
             'op.status as payment_status','op.created_by as paid_by')
             ->where('op.id',$id)
@@ -226,7 +226,7 @@ class OnlinePaymentController extends CollegeBaseController
                 $request->note = $request->note;
 
                 $students = Student::select('students.id','students.reg_no','students.first_name',
-                    'students.middle_name', 'students.last_name','students.faculty','students.semester',
+                    'students.last_name','students.faculty','students.semester',
                     'op.id as payment_id','op.date', 'op.amount', 'op.payment_gateway', 'op.ref_no', 'op.ref_text',
                     'op.status as payment_status','op.created_by as paid_by')
                     ->where('students.id',$onlinePaymentDetail->students_id)

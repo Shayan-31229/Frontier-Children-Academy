@@ -1578,9 +1578,9 @@ trait ExaminationScope{
 
         $filteredStudent = $students->filter(function ($student, $key) use($certificateTemplate) {
             $data = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-                'students.faculty','students.semester','students.batch', 'students.academic_status', 'students.first_name', 'students.middle_name',
+                'students.faculty','students.semester','students.batch', 'students.academic_status', 'students.first_name', 
                 'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion',
-                'students.caste','students.nationality', 'students.mother_tongue', 'students.email', 'students.extra_info',
+                'students.nationality',  'students.email', 'students.extra_info',
                 'students.status',
                 'ai.address', 'ai.state', 'ai.country', 'ai.temp_address', 'ai.temp_state', 'ai.temp_country', 'ai.home_phone',
                 'ai.mobile_1', 'ai.mobile_2',
@@ -1897,9 +1897,9 @@ trait ExaminationScope{
 
         //START
         $student = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-            'students.faculty','students.semester','students.batch', 'students.academic_status', 'students.first_name', 'students.middle_name',
+            'students.faculty','students.semester','students.batch', 'students.academic_status', 'students.first_name', 
             'students.last_name', 'students.date_of_birth', 'students.gender', /*'students.blood_group',  'students.religion',
-            'students.caste','students.nationality', 'students.mother_tongue', 'students.email', 'students.extra_info',
+            'students.nationality',  'students.email', 'students.extra_info',
             'students.status',*/ DB::raw('0 AS creditHourSum'),
             'f.faculty as faculty_title', 'f.faculty_code', 'f.gradingType_id','f.scale', 'f.sorting', 'f.duration','f.credit_required', 'f.registration_validate'
          )

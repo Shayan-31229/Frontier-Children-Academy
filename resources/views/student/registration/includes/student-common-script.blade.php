@@ -176,14 +176,14 @@
         var country = $('input[name="country"]').val();
 
         if ($("#reg_no").val() === '') {
-            toastr.warning("Please, Enter Registration number.", "Info:");
+            toastr.warning("Please, Enter Admission number.", "Info:");
             activeGeneralInfo();
             $("#reg_no").focus();
-            return false;
+            return false; 
         }
 
         if (reg_date === '') {
-            toastr.warning("Please, Enter Registration Date.", "Info:");
+            toastr.warning("Please, Enter Admission Date.", "Info:");
             activeGeneralInfo();
             $("#reg_date").focus();
             return false;

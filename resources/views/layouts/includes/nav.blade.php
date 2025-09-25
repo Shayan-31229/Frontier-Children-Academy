@@ -5,7 +5,8 @@
                 <small class="text-capitalize">
                     <i class="fa fa-graduation-cap orange2" aria-hidden="true"></i>
                     @if(isset($generalSetting->institute))
-                        {{$generalSetting->institute}}
+                        <!-- {{$generalSetting->institute}} -->
+                         {{ $currentBranch->title ?? 'No Branch' }}
                     @else
                         {{ env('APP_NAME') }}
                     @endif

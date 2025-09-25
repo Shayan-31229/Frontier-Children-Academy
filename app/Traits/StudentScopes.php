@@ -190,7 +190,7 @@ trait StudentScopes{
         }
 
         if ($request->has('middle_name')) {
-            $query->where('students.middle_name', 'like', '%' . $request->middle_name . '%');
+            $query->where( 'like', '%' . $request->middle_name . '%');
             $this->filter_query['middle_name'] = $request->middle_name;
         }
 
@@ -233,7 +233,7 @@ trait StudentScopes{
         }
 
         if ($request->has('caste')) {
-            $query->where('students.caste', 'like', '%' . $request->caste . '%');
+            $query->where( 'like', '%' . $request->caste . '%');
             $this->filter_query['caste'] = $request->caste;
         }
 
@@ -248,7 +248,7 @@ trait StudentScopes{
         }
 
         if ($request->has('mother_tongue')) {
-            $query->where('students.mother_tongue', 'like', '%' . $request->mother_tongue . '%');
+            $query->where( 'like', '%' . $request->mother_tongue . '%');
             $this->filter_query['mother_tongue'] = $request->mother_tongue;
         }
         

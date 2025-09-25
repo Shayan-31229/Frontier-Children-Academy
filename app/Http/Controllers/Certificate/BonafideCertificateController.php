@@ -39,7 +39,7 @@ class BonafideCertificateController extends CollegeBaseController
         $data = [];
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date',
             'students.faculty', 'students.semester', 'students.batch', 'students.academic_status', 'students.first_name',
-            'students.middle_name', 'students.last_name', 'bc.id as certificate_id','bc.date_of_issue', 'bc.course',
+            'students.last_name', 'bc.id as certificate_id','bc.date_of_issue', 'bc.course',
             'bc.period', 'bc.character', 'bc.ref_text')
             ->where(function ($query) use ($request) {
 
@@ -136,7 +136,7 @@ class BonafideCertificateController extends CollegeBaseController
         $data = [];
         $data['row'] = Student::select('students.id','students.reg_no', 'students.reg_date',
             'students.faculty', 'students.semester', 'students.batch', 'students.academic_status', 'students.first_name',
-            'students.middle_name', 'students.last_name','bc.id as certificate_id','bc.date_of_issue', 'bc.course',
+            'students.last_name','bc.id as certificate_id','bc.date_of_issue', 'bc.course',
             'bc.period', 'bc.character', 'bc.ref_text')
             ->join('bonafide_certificates as bc', 'bc.students_id', '=', 'students.id')
             ->find($id);
@@ -190,9 +190,9 @@ class BonafideCertificateController extends CollegeBaseController
         $id = decrypt($id);
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
 
-            'students.faculty','students.semester','students.batch', 'students.academic_status', 'students.first_name', 'students.middle_name',
-            'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion', 'students.caste','students.nationality',
-            'students.mother_tongue','students.student_image', 'pd.father_first_name', 'pd.father_middle_name', 'pd.father_last_name',
+            'students.faculty','students.semester','students.batch', 'students.academic_status', 'students.first_name',
+            'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion', 'students.nationality',
+            'students.student_image', 'pd.father_first_name', 'pd.father_middle_name', 'pd.father_last_name',
             'bc.id as certificate_id','bc.date_of_issue', 'bc.course', 'bc.period', 'bc.character', 'bc.ref_text')
             ->where('students.id',$id)
             ->join('bonafide_certificates as bc', 'bc.students_id', '=', 'students.id')
@@ -289,9 +289,9 @@ class BonafideCertificateController extends CollegeBaseController
 
         $filteredStudent = $students->filter(function ($student, $key) use($certificateTemplate) {
             $data = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-                'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 'students.middle_name',
-                'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion', 'students.caste','students.nationality',
-                'students.mother_tongue', 'students.email', 'students.extra_info', 'students.status',
+                'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 'students.nationality',
+                'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion', 
+                'students.email', 'students.extra_info', 'students.status',
                 'ai.address', 'ai.state', 'ai.country', 'ai.temp_address', 'ai.temp_state', 'ai.temp_country', 'ai.home_phone',
                 'ai.mobile_1', 'ai.mobile_2',
                 'pd.grandfather_first_name',

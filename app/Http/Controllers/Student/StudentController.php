@@ -106,7 +106,7 @@ class StudentController extends CollegeBaseController
                 'students.batch',
                 'students.academic_status',
                 'students.first_name',
-                'students.middle_name',
+                
                 'students.last_name',
                 'students.status',
                 'f.faculty',
@@ -120,15 +120,12 @@ class StudentController extends CollegeBaseController
                         $query->where('students.reg_no', 'like', '%' . $request->fast_finder . '%')
                             ->orWhere('students.university_reg', 'like', '%' . $request->fast_finder . '%')
                             ->orWhere('students.first_name', 'like', '%' . $request->fast_finder . '%')
-                            ->orWhere('students.middle_name', 'like', '%' . $request->fast_finder . '%')
                             ->orWhere('students.last_name', 'like', '%' . $request->fast_finder . '%')
                             ->orWhere('students.gender', 'like', '%' . $request->fast_finder . '%')
                             ->orWhere('students.blood_group', 'like', '%' . $request->fast_finder . '%')
                             ->orWhere('students.nationality', 'like', '%' . $request->fast_finder . '%')
                             ->orWhere('students.cnic_no', 'like', '%' . $request->fast_finder . '%')
                             ->orWhere('students.religion', 'like', '%' . $request->fast_finder . '%')
-                            ->orWhere('students.caste', 'like', '%' . $request->fast_finder . '%')
-                            ->orWhere('students.mother_tongue', 'like', '%' . $request->fast_finder . '%')
                             ->orWhere('students.email', 'like', '%' . $request->fast_finder . '%')
                             ->orWhere('ai.mobile_1', 'like', '%' . $request->fast_finder . '%')
                             ->orWhere('ai.mobile_2', 'like', '%' . $request->fast_finder . '%');
@@ -148,7 +145,7 @@ class StudentController extends CollegeBaseController
                 'students.semester',
                 'students.academic_status',
                 'students.first_name',
-                'students.middle_name',
+                
                 'students.last_name',
                 'students.status',
                 'f.faculty',
@@ -342,7 +339,7 @@ class StudentController extends CollegeBaseController
             $extraInfo = StudentExtraInfo::create(
                 [
                     'students_id' => $student->id,
-                    "total_fee_per_year" => $request->get('total_fee_per_year'),
+                    "total_fee_per_year" => $request->get('total_fee_per_year', 0),
                     "bank_name" => $request->get('bank_name'),
                     "bank_code" => $request->get('bank_code'),
                     "bank_account_number" => $request->get('bank_account_number'),
@@ -527,7 +524,7 @@ class StudentController extends CollegeBaseController
             'students.batch',
             'students.academic_status',
             'students.first_name',
-            'students.middle_name',
+            
             'students.last_name',
             'students.date_of_birth',
             'students.gender',
@@ -535,8 +532,8 @@ class StudentController extends CollegeBaseController
             'students.nationality',
             'students.cnic_no',
             'students.religion',
-            'students.caste',
-            'students.mother_tongue',
+            
+            
             'students.email',
             'students.extra_info',
             'students.student_image',
@@ -1097,16 +1094,16 @@ class StudentController extends CollegeBaseController
             'students.batch',
             'students.academic_status',
             'students.first_name',
-            'students.middle_name',
+            
             'students.last_name',
             'students.date_of_birth',
             'students.gender',
             'students.blood_group',
             'students.religion',
-            'students.caste',
+            
             'students.nationality',
             'students.cnic_no',
-            'students.mother_tongue',
+            
             'students.email',
             'students.extra_info',
             'students.student_image',
@@ -2920,12 +2917,12 @@ class StudentController extends CollegeBaseController
     {
         if ($request->has('q')) {
             // $students = Student::select('students.id', 'students.reg_no', 'students.university_reg',
-            //     'students.first_name', 'students.middle_name', 'pd.father_first_name' . 'pd.father_middle_name' . 'pd.father_last_name', 'students.last_name' , 'students.semester','students.email',
+            //     'students.first_name',  'pd.father_first_name' . 'pd.father_middle_name' . 'pd.father_last_name', 'students.last_name' , 'students.semester','students.email',
             //     'ai.mobile_1', 'ai.mobile_2')
             //     ->where('students.reg_no', 'like', '%'.$request->get('q').'%')
             //     ->orWhere('students.university_reg', 'like', '%'.$request->get('q').'%')
             //     ->orWhere('students.first_name', 'like', '%'.$request->get('q').'%')
-            //     ->orWhere('students.middle_name', 'like', '%'.$request->get('q').'%')
+            //     ->orWhere( 'like', '%'.$request->get('q').'%')
             //     ->orWhere('students.last_name', 'like', '%'.$request->get('q').'%')
             //     ->orWhere('students.email', 'like', '%'.$request->get('q').'%')
             //     ->orWhere('ai.mobile_1', 'like', '%'.$request->get('q').'%')
@@ -2939,7 +2936,7 @@ class StudentController extends CollegeBaseController
                 'students.reg_no',
                 'students.university_reg',
                 'students.first_name',
-                'students.middle_name',
+                
                 DB::raw("CONCAT_WS(' ', pd.father_first_name, pd.father_middle_name, pd.father_last_name) as father_name"),
                 'students.last_name',
                 'students.semester',
@@ -2950,7 +2947,7 @@ class StudentController extends CollegeBaseController
                 ->where('students.reg_no', 'like', '%' . $request->get('q') . '%')
                 ->orWhere('students.university_reg', 'like', '%' . $request->get('q') . '%')
                 ->orWhere('students.first_name', 'like', '%' . $request->get('q') . '%')
-                ->orWhere('students.middle_name', 'like', '%' . $request->get('q') . '%')
+                ->orWhere( 'like', '%' . $request->get('q') . '%')
                 ->orWhere('students.last_name', 'like', '%' . $request->get('q') . '%')
                 ->orWhere('students.email', 'like', '%' . $request->get('q') . '%')
                 ->orWhere('ai.mobile_1', 'like', '%' . $request->get('q') . '%')
@@ -3078,15 +3075,15 @@ class StudentController extends CollegeBaseController
             'students.batch',
             'students.academic_status',
             'students.first_name',
-            'students.middle_name',
+            
             'students.last_name',
             'students.date_of_birth',
             'students.gender',
             'students.blood_group',
             'students.religion',
-            'students.caste',
+            
             'students.nationality',
-            'students.mother_tongue',
+            
             'students.email',
             'students.extra_info',
             'students.status',
@@ -3166,15 +3163,15 @@ class StudentController extends CollegeBaseController
                         'students.batch',
                         'students.academic_status',
                         'students.first_name',
-                        'students.middle_name',
+                        
                         'students.last_name',
                         'students.date_of_birth',
                         'students.gender',
                         'students.blood_group',
                         'students.religion',
-                        'students.caste',
+                        
                         'students.nationality',
-                        'students.mother_tongue',
+                        
                         'students.email',
                         'students.extra_info',
                         'students.status',
@@ -3368,16 +3365,16 @@ class StudentController extends CollegeBaseController
             'students.batch',
             'students.academic_status',
             'students.first_name',
-            'students.middle_name',
+            
             'students.last_name',
             'students.date_of_birth',
             'students.gender',
             'students.blood_group',
             'students.religion',
-            'students.caste',
+            
             'students.nationality',
             'students.cnic_no',
-            'students.mother_tongue',
+            
             'students.email',
             'students.extra_info',
             'students.status',
@@ -3478,9 +3475,9 @@ class StudentController extends CollegeBaseController
         //        $id = decrypt($id);
         //        $data = [];
         //        $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-        //            'students.faculty','students.semester','students.batch', 'students.academic_status', 'students.first_name', 'students.middle_name',
-        //            'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion', 'students.caste','students.nationality',
-        //            'students.mother_tongue', 'students.email', 'students.extra_info', 'students.status', 'pd.grandfather_first_name',
+        //            'students.faculty','students.semester','students.batch', 'students.academic_status', 'students.first_name', 
+        //            'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion', 'students.nationality',
+        //             'students.email', 'students.extra_info', 'students.status', 'pd.grandfather_first_name',
         //            'pd.grandfather_middle_name', 'pd.grandfather_last_name', 'pd.father_first_name', 'pd.father_middle_name',
         //            'pd.father_last_name', 'pd.father_eligibility', 'pd.father_occupation', 'pd.father_office', 'pd.father_office_number',
         //            'pd.father_residence_number', 'pd.father_mobile_1', 'pd.father_mobile_2', 'pd.father_email', 'pd.mother_first_name',

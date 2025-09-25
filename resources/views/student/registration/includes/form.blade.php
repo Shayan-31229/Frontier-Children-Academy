@@ -4,11 +4,11 @@
         <li class="active" id="generalInfoTab">
             <a data-toggle="tab" href="#generalInfo"><i class="fa fa-user bigger-110"></i> {{__('form_fields.student.tabs.general_info')}}</a>
         </li>
-        <!-- @if(Config::get('edufirmconfig.student.registration.tabs.academic_info') == 1)
+        @if(Config::get('edufirmconfig.student.registration.tabs.academic_info') == 1)
             <li id="academicInfoTab">
                 <a data-toggle="tab" href="#academicInfo" onclick="activeAcademicInfo()"><i class="fa fa-certificate bigger-110"></i> {{__('form_fields.student.tabs.academic_info')}}</a>
             </li>
-        @endif -->
+        @endif
         @if(Config::get('edufirmconfig.student.registration.tabs.profile_image') == 1)
         <li id="profileImageTab">
             <a data-toggle="tab" href="#profileImage" onclick="activeProfileImage()"><i class="fa fa-image bigger-110"></i> {{__('form_fields.student.tabs.profile_image')}}</a>
@@ -34,7 +34,7 @@
             @endif
             <hr>
             <div class="text-center">
-                <a class=" btn btn-info" data-toggle="tab" href="#academicInfo" onclick="activeAcademicInfo()">
+                <a class=" btn btn-info" data-toggle="tab" href="#academicInfo" onclick="activeProfileImage()">
                     Next <i class="fa fa-arrow-circle-right bigger-110"></i>
                 </a>
             </div>
@@ -60,13 +60,13 @@
                 @include($view_path.'.registration.includes.forms.profileimage')
                 <hr>
                 <div class="text-center">
-                    <a class="btn btn-primary" data-toggle="tab" href="#academicInfo" onclick="activeAcademicInfo()">
+                    <a class="btn btn-primary" data-toggle="tab" href="#academicInfo" onclick="activeGeneralInfo()">
                         <i class="fa fa-arrow-circle-left bigger-110"></i> Previous
                     </a>
 
-                    <a class="btn btn-info" data-toggle="tab" href="#ruleAgreement" onclick="activeRuleAgreement()">
+                    <!-- <a class="btn btn-info" data-toggle="tab" href="#ruleAgreement" onclick="activeRuleAgreement()">
                         Next <i class="fa fa-arrow-circle-right bigger-110"></i>
-                    </a>
+                    </a> -->
 
                 </div>
             </div>

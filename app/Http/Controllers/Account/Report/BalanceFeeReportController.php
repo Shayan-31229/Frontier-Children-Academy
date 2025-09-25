@@ -40,7 +40,7 @@ class BalanceFeeReportController extends CollegeBaseController
 
          if($request->all()) {
             $students = Student::select('students.id', 'students.reg_no', 'students.reg_date', 'students.first_name',
-                'students.middle_name', 'students.last_name', 'students.faculty', 'students.semester', 'ai.mobile_1', 'students.status',
+                'students.last_name', 'students.faculty', 'students.semester', 'ai.mobile_1', 'students.status',
                 'gd.guardian_first_name', 'gd.guardian_middle_name', 'gd.guardian_last_name', 'gd.guardian_mobile_1')
                 ->where(function ($query) use ($request) {
                     $this->commonStudentFilterCondition($query, $request);
@@ -167,7 +167,7 @@ class BalanceFeeReportController extends CollegeBaseController
 
                 $studentsId = $collection->pluck('students_id');
                 $students = Student::select('students.id','students.reg_no','students.reg_date', 'students.first_name',
-                    'students.middle_name', 'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
+                    'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
                     'pd.father_last_name','students.academic_status','students.status')
                     ->whereIn('students.id',$studentsId)
                     ->where(function ($query) use ($request) {
@@ -215,7 +215,7 @@ class BalanceFeeReportController extends CollegeBaseController
                 $collection = FeeCollection::get();
                 $studentsId = $collection->pluck('students_id');
                 $students = Student::select('students.id','students.reg_no','students.reg_date', 'students.first_name',
-                    'students.middle_name', 'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
+                    'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
                     'pd.father_last_name','students.academic_status','students.status')
                     ->whereIn('students.id',$studentsId)
                     ->where(function ($query) use ($request) {
@@ -250,7 +250,7 @@ class BalanceFeeReportController extends CollegeBaseController
             $collection = FeeCollection::get();
             $studentsId = $collection->pluck('students_id');
             $students = Student::select('students.id','students.reg_no','students.reg_date', 'students.first_name',
-                'students.middle_name', 'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
+                'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
                 'pd.father_last_name','students.academic_status','students.status')
                 ->whereIn('students.id',$studentsId)
                 ->where(function ($query) use ($request) {

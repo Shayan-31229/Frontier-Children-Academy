@@ -37,7 +37,7 @@ class FeesPrintController extends CollegeBaseController
         $data['fee_master'] = FeeMaster::find($id);
 
         $data['student'] = $data['fee_master']->students()
-                            ->select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.middle_name','students.last_name',
+                            ->select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.last_name',
                                 'students.faculty','students.batch','students.semester','pd.father_first_name','pd.father_middle_name','pd.father_last_name','sb.title')
                             ->join('parent_details as pd', 'pd.students_id', '=', 'students.id')
                             ->join('student_batches as sb','sb.id','=', 'students.batch')
@@ -58,7 +58,7 @@ class FeesPrintController extends CollegeBaseController
     {
         $id = decrypt($request->studentId);
         $today = Carbon::today();
-        $data['student'] = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.middle_name','students.last_name',
+        $data['student'] = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.last_name',
             'students.faculty','students.batch','students.semester','pd.father_first_name','pd.father_middle_name','pd.father_last_name','sb.title')
             ->join('parent_details as pd', 'pd.students_id', '=', 'students.id')
             ->join('student_batches as sb','sb.id','=', 'students.batch')
@@ -85,7 +85,7 @@ class FeesPrintController extends CollegeBaseController
         $data = [];
         $data['fee_collection'] = FeeCollection::find($id);
 
-        $data['student'] = $data['fee_collection']->students()->select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.middle_name','students.last_name',
+        $data['student'] = $data['fee_collection']->students()->select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.last_name',
                 'students.faculty','students.batch','students.semester','pd.father_first_name','pd.father_middle_name','pd.father_last_name','sb.title')
                 ->join('parent_details as pd', 'pd.students_id', '=', 'students.id')
                 ->join('student_batches as sb','sb.id','=', 'students.batch')
@@ -98,7 +98,7 @@ class FeesPrintController extends CollegeBaseController
     {
         $id = decrypt($id);
         $today = Carbon::parse(today())->format('Y-m-d');
-        $data['student'] = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.middle_name','students.last_name',
+        $data['student'] = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.last_name',
             'students.faculty','students.batch','students.semester','pd.father_first_name','pd.father_middle_name','pd.father_last_name','sb.title')
             ->join('parent_details as pd', 'pd.students_id', '=', 'students.id')
             ->join('student_batches as sb','sb.id','=', 'students.batch')
@@ -122,7 +122,7 @@ class FeesPrintController extends CollegeBaseController
     {
         $id = decrypt($id);
         $today = Carbon::parse(today())->format('Y-m-d');
-        $data['student'] = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.middle_name','students.last_name',
+        $data['student'] = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.last_name',
             'students.faculty','students.batch','students.semester','pd.father_first_name','pd.father_middle_name','pd.father_last_name','sb.title')
             ->join('parent_details as pd', 'pd.students_id', '=', 'students.id')
             ->join('student_batches as sb','sb.id','=', 'students.batch')
@@ -146,7 +146,7 @@ class FeesPrintController extends CollegeBaseController
     {
         $today = Carbon::today();
         $id = decrypt($id);
-        $data['student'] = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.middle_name','students.last_name',
+        $data['student'] = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.last_name',
             'students.faculty','students.batch','students.semester','pd.father_first_name','pd.father_middle_name','pd.father_last_name','sb.title')
             ->join('parent_details as pd', 'pd.students_id', '=', 'students.id')
             ->join('student_batches as sb','sb.id','=', 'students.batch')
@@ -172,7 +172,7 @@ class FeesPrintController extends CollegeBaseController
     public function studentDue(Request $request, $id)
     {
         $id = decrypt($id);
-        $data['student'] = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.middle_name','students.last_name',
+        $data['student'] = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.last_name',
             'students.faculty','students.batch','students.semester','pd.father_first_name','pd.father_middle_name','pd.father_last_name','sb.title')
             ->join('parent_details as pd', 'pd.students_id', '=', 'students.id')
             ->join('student_batches as sb','sb.id','=', 'students.batch')
@@ -191,7 +191,7 @@ class FeesPrintController extends CollegeBaseController
     public function studentDueDetail(Request $request, $id)
     {
         $id = decrypt($id);
-        $data['student'] = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.middle_name','students.last_name',
+        $data['student'] = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.last_name',
             'students.faculty','students.batch','students.semester','pd.father_first_name','pd.father_middle_name','pd.father_last_name','sb.title')
             ->join('parent_details as pd', 'pd.students_id', '=', 'students.id')
             ->join('student_batches as sb','sb.id','=', 'students.batch')
@@ -231,7 +231,7 @@ class FeesPrintController extends CollegeBaseController
     public function bulkDueDetailSlip(Request $request)
     {
         $studentId = $request->get('student');
-        $students = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.middle_name','students.last_name',
+        $students = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.last_name',
             'students.faculty','students.batch','students.semester','pd.father_first_name','pd.father_middle_name','pd.father_last_name','sb.title')
             ->join('parent_details as pd', 'pd.students_id', '=', 'students.id')
             ->join('student_batches as sb','sb.id','=', 'students.batch')
@@ -277,7 +277,7 @@ class FeesPrintController extends CollegeBaseController
     public function bulkDueSlip(Request $request)
     {
         $studentId = $request->get('student');
-        $students = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.middle_name','students.last_name',
+        $students = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.last_name',
             'students.faculty','students.batch','students.semester','pd.father_first_name','pd.father_middle_name','pd.father_last_name','sb.title')
             ->join('parent_details as pd', 'pd.students_id', '=', 'students.id')
             ->join('student_batches as sb','sb.id','=', 'students.batch')
@@ -323,7 +323,7 @@ class FeesPrintController extends CollegeBaseController
     {
         $month = $request->get('month');
         $studentId = $request->get('student');
-        $students = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.middle_name','students.last_name',
+        $students = Student::select('students.id','students.reg_no','students.university_reg', 'students.first_name','students.last_name',
             'students.faculty','students.batch','students.semester','pd.father_first_name','pd.father_middle_name','pd.father_last_name','sb.title')
             ->join('parent_details as pd', 'pd.students_id', '=', 'students.id')
             ->join('student_batches as sb','sb.id','=', 'students.batch')

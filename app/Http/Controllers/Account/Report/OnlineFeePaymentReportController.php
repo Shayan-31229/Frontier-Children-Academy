@@ -39,7 +39,7 @@ class OnlineFeePaymentReportController extends CollegeBaseController
         $data = [];
         if($request->all()){
             $data['student'] = Student::select('students.id','students.reg_no','students.first_name',
-                'students.middle_name', 'students.last_name','students.faculty','students.semester',
+                'students.last_name','students.faculty','students.semester',
                 'op.id as payment_id','op.date', 'op.amount', 'op.payment_gateway', 'op.ref_no', 'op.ref_text',
                 'op.status as payment_status','op.created_by as paid_by')
                 ->where(function ($query) use ($request) {
@@ -72,7 +72,7 @@ class OnlineFeePaymentReportController extends CollegeBaseController
                 ->get();
         }else{
             $data['student'] = Student::select('students.id','students.reg_no','students.first_name',
-                'students.middle_name', 'students.last_name','students.faculty','students.semester',
+                'students.last_name','students.faculty','students.semester',
                 'op.id as payment_id','op.date', 'op.amount', 'op.payment_gateway', 'op.ref_no', 'op.ref_text',
                 'op.status as payment_status','op.created_by as paid_by')
                 ->where('op.status',0)
@@ -136,7 +136,7 @@ class OnlineFeePaymentReportController extends CollegeBaseController
 
                 $studentsId = $collection->pluck('students_id');
                 $students = Student::select('students.id','students.reg_no','students.reg_date', 'students.first_name',
-                    'students.middle_name', 'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
+                    'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
                     'pd.father_last_name','students.academic_status','students.status')
                     ->whereIn('students.id',$studentsId)
                     ->where(function ($query) use ($request) {
@@ -184,7 +184,7 @@ class OnlineFeePaymentReportController extends CollegeBaseController
                 $collection = FeeCollection::get();
                 $studentsId = $collection->pluck('students_id');
                 $students = Student::select('students.id','students.reg_no','students.reg_date', 'students.first_name',
-                    'students.middle_name', 'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
+                    'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
                     'pd.father_last_name','students.academic_status','students.status')
                     ->whereIn('students.id',$studentsId)
                     ->where(function ($query) use ($request) {
@@ -219,7 +219,7 @@ class OnlineFeePaymentReportController extends CollegeBaseController
             $collection = FeeCollection::get();
             $studentsId = $collection->pluck('students_id');
             $students = Student::select('students.id','students.reg_no','students.reg_date', 'students.first_name',
-                'students.middle_name', 'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
+                'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
                 'pd.father_last_name','students.academic_status','students.status')
                 ->whereIn('students.id',$studentsId)
                 ->where(function ($query) use ($request) {

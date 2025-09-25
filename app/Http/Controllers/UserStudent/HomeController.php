@@ -101,7 +101,7 @@ class HomeController extends CollegeBaseController
             'students.semester',
             'students.academic_status',
             'students.first_name',
-            'students.middle_name',
+            
             'students.mobile_1',
             'students.mobile_2',
             'students.last_name',
@@ -109,7 +109,7 @@ class HomeController extends CollegeBaseController
             'students.gender',
             'students.blood_group',
             'students.nationality',
-            'students.mother_tongue',
+            
             'students.email',
             'students.extra_info',
             'students.student_image',
@@ -174,13 +174,13 @@ class HomeController extends CollegeBaseController
             'students.semester',
             'students.academic_status',
             'students.first_name',
-            'students.middle_name',
+            
             'students.last_name',
             'students.date_of_birth',
             'students.gender',
             'students.blood_group',
             'students.nationality',
-            'students.mother_tongue',
+            
             'students.email',
             'students.extra_info',
             'students.student_image',
@@ -294,15 +294,15 @@ class HomeController extends CollegeBaseController
             'students.batch',
             'students.academic_status',
             'students.first_name',
-            'students.middle_name',
+            
             'students.last_name',
             'students.date_of_birth',
             'students.gender',
             'students.blood_group',
             'students.religion',
-            'students.caste',
+            
             'students.nationality',
-            'students.mother_tongue',
+            
             'students.email',
             'students.extra_info',
             'students.student_image',
@@ -617,7 +617,7 @@ class HomeController extends CollegeBaseController
             'students.reg_no',
             'students.reg_date',
             'students.first_name',
-            'students.middle_name',
+            
             'students.last_name',
             'students.faculty',
             'students.semester',
@@ -1229,7 +1229,7 @@ class HomeController extends CollegeBaseController
             'students.date_of_birth',
             'students.cnic_no',
             'students.first_name',
-            'students.middle_name',
+            
             'students.last_name',
             'students.student_image',
             'students.gender',
@@ -1932,13 +1932,13 @@ class HomeController extends CollegeBaseController
             'students.semester',
             'students.academic_status',
             'students.first_name',
-            'students.middle_name',
+            
             'students.last_name',
             'students.date_of_birth',
             'students.gender',
             'students.blood_group',
             'students.nationality',
-            'students.mother_tongue',
+            
             'students.email',
             'students.extra_info',
             'students.student_image',
@@ -2191,13 +2191,13 @@ class HomeController extends CollegeBaseController
             'students.semester',
             'students.academic_status',
             'students.first_name',
-            'students.middle_name',
+            
             'students.last_name',
             'students.date_of_birth',
             'students.gender',
             'students.blood_group',
             'students.nationality',
-            'students.mother_tongue',
+            
             'students.email',
             'students.extra_info',
             'students.student_image',

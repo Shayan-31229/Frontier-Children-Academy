@@ -1,5 +1,22 @@
+<!-- <div class="row">
+    <div class="col-md-12">
+        @if(auth()->check() && auth()->user()->hasRole('super-admin'))
+            <form action="{{ route('switch.branch') }}" method="POST" class="inline-block" style="margin-bottom: 10px;">
+                @csrf
+                <select name="branch_id" class="form-control" onchange="this.form.submit()">
+                    <option value="">-- All Branches --</option>
+                    @foreach(\App\Models\Branch::all() as $branch)
+                        <option value="{{ $branch->id }}" {{ session('active_branch_id') == $branch->id ? 'selected' : '' }}>
+                            {{ $branch->title }}
+                        </option>
+                    @endforeach
+                </select>
+            </form>
+        @endif
+    </div>
+</div> -->
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-2 col-md-offset-3">
         <a href="{{ route('student') }}" class="easy-link-menu">
             <div class="dash-card card-softred text-xs-center">
                 <div class="card-block">
@@ -25,7 +42,7 @@
         </a>
     </div>
 
-    <div class="col-md-2">
+    <!-- <div class="col-md-2">
         <a href="{{ route('library.book') }}" class="easy-link-menu">
             <div class="dash-card card-green text-xs-center">
                 <div class="card-block">
@@ -36,9 +53,9 @@
                 </div>
             </div>
         </a>
-    </div>
+    </div> -->
 
-    <div class="col-md-2">
+    <!-- <div class="col-md-2">
         <a href="{{ route('exam.schedule') }}" class="easy-link-menu">
             <div class="dash-card card-yellow text-xs-center">
                 <div class="card-block">
@@ -49,9 +66,9 @@
                 </div>
             </div>
         </a>
-    </div>
+    </div> -->
 
-    <div class="col-md-2">
+    <!-- <div class="col-md-2">
         <a href="{{ route('hostel') }}" class="easy-link-menu">
             <div class="dash-card card-red text-xs-center">
                 <div class="card-block">
@@ -62,7 +79,7 @@
                 </div>
             </div>
         </a>
-    </div>
+    </div> -->
 
     <div class="col-md-2">
         <a href="{{ route('transport.vehicle') }}" class="easy-link-menu">
@@ -78,5 +95,3 @@
     </div>
 
 </div>
-
-

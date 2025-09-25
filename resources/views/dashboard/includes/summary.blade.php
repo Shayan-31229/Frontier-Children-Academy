@@ -170,7 +170,7 @@
     <div class="widget-body">
         <div class="widget-main no-padding">
 
-            <table class="table table-bordered table-striped">
+            <!-- <table class="table table-bordered table-striped">
                 <thead class="">
                     <tr>
                         <td colspan="2">
@@ -213,7 +213,7 @@
                 @endif
 
                 </tbody>
-            </table>
+            </table> -->
         </div><!-- /.widget-main -->
     </div><!-- /.widget-body -->
     <hr class="hr-double hr-8">

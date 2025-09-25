@@ -155,7 +155,7 @@ class CertificateController extends CollegeBaseController
 
         $data['history'] = CertificateHistory::select('certificate_histories.created_at','certificate_histories.certificate', 'certificate_histories.certificate_id',
             'certificate_histories.history_type', 'certificate_histories.ref_text', 'students.id as students_id','students.reg_no',
-            'students.first_name', 'students.middle_name', 'students.last_name', 'students.faculty', 'students.semester')
+            'students.first_name', 'students.last_name', 'students.faculty', 'students.semester')
             ->where(function ($query) use ($request) {
 
                 $this->commonStudentFilterCondition($query, $request);

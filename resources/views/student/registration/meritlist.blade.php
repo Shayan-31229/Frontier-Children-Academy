@@ -223,30 +223,42 @@
                     if (data.error) {
                         $.notify(data.message, "warning");
                     } else {
-                        var str = "";
+                        var rows = [];
                         $(".lblmaxstudents").html(
                             data.selected_students + " of " + data.max_students + " students selected"
                         );
-
                         $.each(data.students, function (key, valueObj) {
+                            console.log(valueObj);
                             let studentFullName = [valueObj.first_name, valueObj.middle_name, valueObj.last_name].filter(Boolean).join(' ');
                             let fatherFullName = [valueObj.father_first_name, valueObj.father_middle_name, valueObj.father_last_name].filter(Boolean).join(' ');
+                            console.log(valueObj); 
+                            rows.push([
+                                '<input type="checkbox" name="chkIds[]" value="' + valueObj.id + '" class="ace chkstd" /><span class="lbl"></span>',
+                                studentFullName,
+                                fatherFullName,
+                                valueObj.gender,
+                                valueObj.reg_date ? valueObj.reg_date.split(" ")[0] : "-",
+                                valueObj.degrees[3] 
+                                    ? Math.round(valueObj.degrees[3].obtained_mark) + '/' + Math.round(valueObj.degrees[3].total_marks) 
+                                    : "-",
 
-                            str += '<tr>';
-                            str += '<td class="text-center"><input type="checkbox" name="chkIds[]" value="' + valueObj.id + '" class="ace chkstd" /><span class="lbl"></span></td>';
-                            str += '<td>' + studentFullName + '</td>';
-                            str += '<td>' + fatherFullName + '</td>';
-                            str += '<td>' + valueObj.gender + '</td>';
-                            str += '<td>' + (valueObj.degrees[3] ? Math.round(valueObj.degrees[3].obtained_mark) + '/' + Math.round(valueObj.degrees[3].total_marks) : "") + '</td>';
-                            str += '<td>' + (valueObj.degrees[1] ? Math.round(valueObj.degrees[1].obtained_mark) + '/' + Math.round(valueObj.degrees[1].total_marks) : "") + '</td>';
-                            str += '<td>' + (valueObj.degrees[2] ? Math.round(valueObj.degrees[2].obtained_mark) + '/' + Math.round(valueObj.degrees[2].total_marks) : "") + '</td>';
-                            str += '<td>' + valueObj.interview_marks + '</td>';
-                            str += '<td>' + getAgregate(valueObj) + '</td>';
-                            str += '<td><input type="date" class="txtDate" /> <a class="btn-info btn-sm btn-mark-single" data-id="' + valueObj.id + '">Notify</a> <a target="_blank" class="btn-primary btn-sm" href="/student/' + valueObj.encrypted_id + '/view">Profile</a></td>';
-                            str += '</tr>';
+                                valueObj.degrees[1] 
+                                    ? Math.round(valueObj.degrees[1].obtained_mark) + '/' + Math.round(valueObj.degrees[1].total_marks) 
+                                    : "-",
+
+                                valueObj.degrees[2] 
+                                    ? Math.round(valueObj.degrees[2].obtained_mark) + '/' + Math.round(valueObj.degrees[2].total_marks) 
+                                    : "-",
+                                valueObj.interview_marks,
+                                getAgregate(valueObj),
+                                '<div class="btn-group">' +
+                                    '<input type="date" class="txtDate" id="txtDate" /> <a class="btn-info btn-sm btn-mark-single" data-id="' + valueObj.id + '">Notify</a> <a target="_blank" class="btn-primary btn-sm" href="/student/' + valueObj.encrypted_id + '/view">Profile</a>' +
+                                '</div>'
+                            ]);
                         });
 
-                        $(".tbl-students tbody").html(str);
+                        // Clear and populate datatable
+                        tbl1.clear().rows.add(rows).draw();
                     }
                 }
             });

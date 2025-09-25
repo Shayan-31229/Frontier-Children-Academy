@@ -403,9 +403,9 @@ class AssignmentController extends CollegeBaseController
         if(!$data['answers']) return back()->with('message_warning','No Answer Submitted');
 
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 'students.middle_name',
+            'students.faculty','students.semester', 'students.academic_status', 'students.first_name',
             'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group', 'students.nationality',
-            'students.mother_tongue', 'students.email', 'students.extra_info', 'students.student_image', 'students.status')
+            'students.email', 'students.extra_info', 'students.student_image', 'students.status')
             ->where('students.id','=',$data['answers']->students_id)
             ->first();
 

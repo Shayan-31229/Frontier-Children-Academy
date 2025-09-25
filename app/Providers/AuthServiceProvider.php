@@ -25,7 +25,9 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
+        Gate::define('manage-branches', function ($user) {
+            return $user->hasRole('super-admin') || $user->hasRole('admin');
+        });
         Passport::routes();
     }
 }

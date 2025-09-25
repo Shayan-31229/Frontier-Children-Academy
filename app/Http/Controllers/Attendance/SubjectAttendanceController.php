@@ -64,7 +64,7 @@ class SubjectAttendanceController extends CollegeBaseController
                             'subject_attendances.day_24', 'subject_attendances.day_25', 'subject_attendances.day_26', 'subject_attendances.day_27', 'subject_attendances.day_28',
                             'subject_attendances.day_29', 'subject_attendances.day_30', 'subject_attendances.day_31','subject_attendances.day_32',
                             'students.id as students_id', 'students.reg_no',
-                            'students.first_name', 'students.middle_name', 'students.last_name', 'students.faculty', 'students.semester')
+                            'students.first_name', 'students.last_name', 'students.faculty', 'students.semester')
                             ->where(function ($query) use ($request,$teacherSubject) {
                                 $this->commonStudentFilterCondition($query, $request);
 
@@ -114,7 +114,7 @@ class SubjectAttendanceController extends CollegeBaseController
                     'subject_attendances.day_24', 'subject_attendances.day_25', 'subject_attendances.day_26', 'subject_attendances.day_27', 'subject_attendances.day_28',
                     'subject_attendances.day_29', 'subject_attendances.day_30', 'subject_attendances.day_31','subject_attendances.day_32',
                     'students.id as students_id', 'students.reg_no',
-                    'students.first_name', 'students.middle_name', 'students.last_name', 'students.faculty', 'students.semester')
+                    'students.first_name', 'students.last_name', 'students.faculty', 'students.semester')
                     ->where(function ($query) use ($request) {
                         $this->commonStudentFilterCondition($query, $request);
 

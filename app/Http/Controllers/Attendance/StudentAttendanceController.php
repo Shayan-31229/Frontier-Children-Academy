@@ -63,7 +63,7 @@ class StudentAttendanceController extends CollegeBaseController
                             'attendances.day_24', 'attendances.day_25', 'attendances.day_26', 'attendances.day_27', 'attendances.day_28',
                             'attendances.day_29', 'attendances.day_30', 'attendances.day_31', 'attendances.day_32',
                             'students.id as students_id', 'students.reg_no',
-                            'students.first_name', 'students.middle_name', 'students.last_name', 'students.faculty', 'students.semester')
+                            'students.first_name', 'students.last_name', 'students.faculty', 'students.semester')
                             ->where('attendances.created_by', $id)
                             ->where('attendances.attendees_type', 1)
                             ->where('students.semester', $semesterStaff->id)
@@ -103,7 +103,7 @@ class StudentAttendanceController extends CollegeBaseController
                     'attendances.day_24', 'attendances.day_25', 'attendances.day_26', 'attendances.day_27', 'attendances.day_28',
                     'attendances.day_29', 'attendances.day_30', 'attendances.day_31','attendances.day_32',
                     'students.id as students_id', 'students.reg_no',
-                    'students.first_name', 'students.middle_name', 'students.last_name', 'students.faculty', 'students.semester')
+                    'students.first_name', 'students.last_name', 'students.faculty', 'students.semester')
                     ->where('attendances.attendees_type', 1)
                     ->where(function ($query) use ($request) {
 

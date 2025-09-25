@@ -129,7 +129,7 @@ class LibraryBaseController extends CollegeBaseController
 
         $data['student'] = BookRequest::select('book_requests.id as br_id','book_requests.created_at as requested_date', 'book_requests.book_masters_id',
             'lm.user_type', 'lm.member_id',
-            'lm.status', 'students.first_name',  'students.middle_name',  'students.last_name','students.faculty','students.semester')
+            'lm.status', 'students.first_name',    'students.last_name','students.faculty','students.semester')
             ->where(function ($query) use ($request) {
                 $this->commonStudentFilterCondition($query, $request);
             })

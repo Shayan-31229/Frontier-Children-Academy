@@ -75,5 +75,6 @@ class Kernel extends HttpKernel
         'user-dashboard' => UserGroupDashboard::class,
         'page-status'=>  CheckPageStatus::class,
         'feepaid' => \App\Http\Middleware\FeePaidMiddleware::class,
+        'setbranch' => \App\Http\Middleware\SetBranch::class,
     ];
 }

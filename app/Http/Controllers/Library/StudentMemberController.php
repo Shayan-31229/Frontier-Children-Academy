@@ -33,7 +33,7 @@ class StudentMemberController extends CollegeBaseController
     {
         $data = [];
         $data['lm'] = LibraryMember::select('library_members.id','library_members.user_type', 'library_members.member_id',
-            'library_members.status', 'students.first_name',  'students.middle_name',  'students.last_name','students.faculty','students.semester')
+            'library_members.status', 'students.first_name',    'students.last_name','students.faculty','students.semester')
             ->where(['library_members.user_type'=> 1 ,'library_members.status' => 1])
             ->where(function ($query) use ($request) {
                 $this->commonStudentFilterCondition($query, $request);
@@ -68,9 +68,9 @@ class StudentMemberController extends CollegeBaseController
         $data = [];
         $data['blank_ins'] = new LibraryMember();
         $data['student'] = LibraryMember::select('library_members.id','library_members.user_type', 'library_members.member_id',
-            'library_members.status', 'students.first_name',  'students.middle_name', 'students.last_name',
+            'library_members.status', 'students.first_name',   'students.last_name',
             'students.last_name', 'students.gender','students.blood_group','students.university_reg','students.date_of_birth','students.nationality',
-            'students.mother_tongue','students.email', 'students.faculty','students.semester','students.student_image')
+            'students.email', 'students.faculty','students.semester','students.student_image')
             ->where(['library_members.user_type' =>  1, 'library_members.member_id' =>  $id ])
             ->join('students','students.id','=','library_members.member_id')
             ->first();

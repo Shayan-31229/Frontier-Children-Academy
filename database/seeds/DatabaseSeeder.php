@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GradingTypeAndScaleSeeder::class);
         $this->call(FacultyAndSemesterSeeder::class);
         $this->call(Subjects::class);
-        
+        $this->call(BranchesSeeder::class);
         //$this->call(DemoDataSeeder::class);
     }
 }

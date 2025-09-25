@@ -161,9 +161,9 @@ class HomeController extends CollegeBaseController
         $data['student_id'] = $id;
 
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 'students.middle_name',
+            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 
             'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group', 'students.nationality',
-            'students.mother_tongue', 'students.email', 'students.extra_info', 'students.student_image', 'students.status', 'pd.grandfather_first_name',
+             'students.email', 'students.extra_info', 'students.student_image', 'students.status', 'pd.grandfather_first_name',
             'pd.grandfather_middle_name', 'pd.grandfather_last_name', 'pd.father_first_name', 'pd.father_middle_name',
             'pd.father_last_name', 'pd.father_eligibility', 'pd.father_occupation', 'pd.father_office', 'pd.father_office_number',
             'pd.father_residence_number', 'pd.father_mobile_1', 'pd.father_mobile_2', 'pd.father_email', 'pd.mother_first_name',
@@ -222,7 +222,7 @@ class HomeController extends CollegeBaseController
 
         $today = Carbon::parse(today())->format('Y-m-d');
         $data['student'] = Student::select('students.id','students.reg_no','students.reg_date', 'students.first_name',
-            'students.middle_name', 'students.last_name','students.faculty','students.semester','students.date_of_birth',
+             'students.last_name','students.faculty','students.semester','students.date_of_birth',
             'students.email', 'ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name', 'pd.father_last_name',
             'students.student_image','students.status')
             ->where('students.id','=',$id)
@@ -259,9 +259,9 @@ class HomeController extends CollegeBaseController
         $data['student_id'] = $id;
 
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 'students.middle_name',
+            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 
             'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group', 'students.nationality',
-            'students.mother_tongue', 'students.email', 'students.extra_info', 'students.student_image', 'students.status')
+             'students.email', 'students.extra_info', 'students.student_image', 'students.status')
             ->where('students.id','=',$id)
             ->first();
 
@@ -291,9 +291,9 @@ class HomeController extends CollegeBaseController
         $data['student_id'] = $id;
 
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 'students.middle_name',
+            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 
             'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group', 'students.nationality',
-            'students.mother_tongue', 'students.email', 'students.extra_info', 'students.student_image', 'students.status')
+             'students.email', 'students.extra_info', 'students.student_image', 'students.status')
             ->where('students.id','=',$id)
             ->first();
 
@@ -375,9 +375,9 @@ class HomeController extends CollegeBaseController
         $data = [];
         $data['student_id'] = $id;
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 'students.middle_name',
+            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 
             'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group', 'students.nationality',
-            'students.mother_tongue', 'students.email', 'students.extra_info', 'students.student_image', 'students.status')
+             'students.email', 'students.extra_info', 'students.student_image', 'students.status')
             ->where('students.id','=',$id)
             ->first();
 
@@ -400,9 +400,9 @@ class HomeController extends CollegeBaseController
         $data = [];
         $data['student_id'] = $id;
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 'students.middle_name',
+            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 
             'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group', 'students.nationality',
-            'students.mother_tongue', 'students.email', 'students.extra_info', 'students.student_image', 'students.status')
+             'students.email', 'students.extra_info', 'students.student_image', 'students.status')
             ->where('students.id','=',$id)
             ->first();
 
@@ -426,9 +426,9 @@ class HomeController extends CollegeBaseController
         $data['student_id'] = $id;
 
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 'students.middle_name',
+            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 
             'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group', 'students.nationality',
-            'students.mother_tongue', 'students.email', 'students.extra_info', 'students.student_image', 'students.status')
+             'students.email', 'students.extra_info', 'students.student_image', 'students.status')
             ->where('students.id','=',$id)
             ->first();
 
@@ -447,9 +447,9 @@ class HomeController extends CollegeBaseController
         $data['student_id'] = $id;
 
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 'students.middle_name',
+            'students.faculty','students.semester', 'students.academic_status', 'students.first_name', 
             'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group', 'students.nationality',
-            'students.mother_tongue', 'students.email', 'students.extra_info', 'students.student_image', 'students.status')
+             'students.email', 'students.extra_info', 'students.student_image', 'students.status')
             ->where('students.id','=',$id)
             ->first();
 

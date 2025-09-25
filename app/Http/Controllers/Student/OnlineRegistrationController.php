@@ -341,10 +341,10 @@ class OnlineRegistrationController extends CollegeBaseController
         $id = decrypt($id);
         $data = [];
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-            'students.faculty','students.semester','students.batch', 'students.academic_status', 'students.first_name', 'students.middle_name',
-            'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion', 'students.caste',
+            'students.faculty','students.semester','students.batch', 'students.academic_status', 'students.first_name', 
+            'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion', 
             'students.nationality', 'students.cnic_no', 
-            'students.mother_tongue', 'students.email', 'students.extra_info', 'students.status', 'pd.grandfather_first_name',
+             'students.email', 'students.extra_info', 'students.status', 'pd.grandfather_first_name',
             'pd.grandfather_middle_name', 'pd.grandfather_last_name', 'pd.father_first_name', 'pd.father_middle_name',
             'pd.father_last_name', 'pd.father_eligibility', 'pd.father_occupation', 'pd.father_office', 'pd.father_office_number',
             'pd.father_residence_number', 'pd.father_mobile_1', 'pd.father_mobile_2', 'pd.father_email', 'pd.mother_first_name',

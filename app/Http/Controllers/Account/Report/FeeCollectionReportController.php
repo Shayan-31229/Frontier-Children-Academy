@@ -70,7 +70,7 @@ class FeeCollectionReportController extends CollegeBaseController
 
                 $studentsId = $collection->pluck('students_id')->toArray();
                 $students = Student::select('students.id','students.reg_no','students.reg_date', 'students.first_name',
-                    'students.middle_name', 'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
+                    'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
                     'pd.father_last_name','students.academic_status','students.status')
                     ->whereIn('students.id',array_unique($studentsId))
                     ->where(function ($query) use ($request) {
@@ -123,7 +123,7 @@ class FeeCollectionReportController extends CollegeBaseController
                 $collection = FeeCollection::get();
                 $studentsId = $collection->pluck('students_id');
                 $students = Student::select('students.id','students.reg_no','students.reg_date', 'students.first_name',
-                    'students.middle_name', 'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
+                    'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
                     'pd.father_last_name','students.academic_status','students.status')
                     ->whereIn('students.id',$studentsId)
                     ->where(function ($query) use ($request) {
@@ -161,7 +161,7 @@ class FeeCollectionReportController extends CollegeBaseController
             $collection = FeeCollection::get();
             $studentsId = $collection->pluck('students_id');
             $students = Student::select('students.id','students.reg_no','students.reg_date', 'students.first_name',
-                'students.middle_name', 'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
+                'students.last_name','students.faculty','students.semester','ai.mobile_1', 'pd.father_first_name', 'pd.father_middle_name',
                 'pd.father_last_name','students.academic_status','students.status')
                 ->whereIn('students.id',$studentsId)
                 ->where(function ($query) use ($request) {

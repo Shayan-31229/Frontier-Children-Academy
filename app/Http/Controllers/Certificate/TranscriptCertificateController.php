@@ -48,7 +48,7 @@ class TranscriptCertificateController extends CollegeBaseController
         $data = [];
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date',
             'students.faculty', 'students.semester', 'students.batch', 'students.academic_status', 'students.first_name',
-            'students.middle_name', 'students.last_name',
+             'students.last_name',
             'tc.id as certificate_id', 'tc.date_of_issue','tc.trc_num', 'tc.year','tc.duration','tc.credit_required',
             'tc.gpa','tc.verification_code', 'tc.mark_sheet_sn', 'tc.provisional_certificate_num',
             'tc.ref_text')
@@ -175,7 +175,7 @@ class TranscriptCertificateController extends CollegeBaseController
         $data = [];
         $data['row'] = Student::select('students.id','students.reg_no', 'students.reg_date',
             'students.faculty', 'students.semester', 'students.batch', 'students.academic_status', 'students.first_name',
-            'students.middle_name', 'students.last_name',
+             'students.last_name',
             'tc.id as certificate_id', 'tc.date_of_issue','tc.trc_num', 'tc.year','tc.duration','tc.credit_required',
             'tc.gpa','tc.verification_code', 'tc.mark_sheet_sn', 'tc.provisional_certificate_num',
             'tc.ref_text')
@@ -237,9 +237,9 @@ class TranscriptCertificateController extends CollegeBaseController
     {
         $id = decrypt($id);
         $data['student'] = Student::select('students.id','students.reg_no', 'students.reg_date', 'students.university_reg',
-            'students.faculty','students.semester','students.batch', 'students.academic_status', 'students.first_name', 'students.middle_name',
-            'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion', 'students.caste','students.nationality',
-            'students.mother_tongue','students.student_image', 'pd.father_first_name', 'pd.father_middle_name', 'pd.father_last_name',
+            'students.faculty','students.semester','students.batch', 'students.academic_status', 'students.first_name', 
+            'students.last_name', 'students.date_of_birth', 'students.gender', 'students.blood_group',  'students.religion', 'students.nationality',
+            'students.student_image', 'pd.father_first_name', 'pd.father_middle_name', 'pd.father_last_name',
             'tc.id as certificate_id', 'tc.date_of_issue','tc.trc_num', 'tc.year','tc.duration','tc.credit_required',
             'tc.gpa','tc.verification_code', 'tc.mark_sheet_sn', 'tc.provisional_certificate_num',
             'tc.ref_text')
